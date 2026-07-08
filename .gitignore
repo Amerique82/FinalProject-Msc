@@ -1,1 +1,5 @@
+# macOS system files
 .DS_Store
+
+# Claude/Cowork session data — not part of the artefact
+.claude/
