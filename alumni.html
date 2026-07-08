@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content="Computing Alumni Network at the University of Roehampton — stay connected, find opportunities and inspire the next generation.">
+ <title>Alumni Network — Computing Hub · University of Roehampton</title>
+ <link rel="stylesheet" href="assets/css/styles.css">
+ <style>
+ /* ── Alumni page styles ── */
+ .networking-grid {
+ display: grid;
+ grid-template-columns: 1fr 380px;
+ gap: 48px;
+ align-items: start;
+ }
+ @media (max-width: 860px) { .networking-grid { grid-template-columns: 1fr; } }
+
+ .al-event-list { list-style: none; margin: 0; }
+ .al-event-item {
+ display: flex;
+ gap: 18px;
+ padding: 14px 0;
+ border-bottom: 1px solid var(--border);
+ align-items: center;
+ }
+ .al-event-item:last-child { border-bottom: none; }
+ .al-event-date {
+ flex-shrink: 0;
+ width: 48px;
+ text-align: center;
+ background: var(--green-light);
+ border-radius: var(--radius);
+ padding: 8px 4px;
+ }
+ .al-ev-day { display: block; font-size: 1.2rem; font-weight: 700; color: var(--green-dark); font-family: Georgia,serif; line-height: 1; }
+ .al-ev-mon { display: block; font-size: .64rem; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: .07em; }
+ .al-event-body { flex: 1; }
+ .al-event-body h4 { font-size: .93rem; margin-bottom: 3px; }
+ .al-event-body p { font-size: .8rem; color: var(--text-muted); }
+ .al-event-register {
+ font-size: .8rem;
+ font-weight: 600;
+ color: var(--green);
+ white-space: nowrap;
+ flex-shrink: 0;
+ }
+ .al-event-register:hover { text-decoration: underline; }
+
+ .mentorship-card {
+ background: linear-gradient(135deg, var(--green-darker) 0%, var(--green-dark) 100%);
+ border-radius: var(--radius-xl);
+ padding: 36px;
+ color: var(--white);
+ }
+ .mentorship-card h3 { color: var(--white); font-size: 1.2rem; margin-bottom: 12px; }
+ .mentorship-card p { color: rgba(255,255,255,.85); margin-bottom: 20px; }
+
+ .job-list { display: flex; flex-direction: column; gap: 12px; }
+ .job-card {
+ background: var(--bg-card);
+ border: 1px solid var(--border);
+ border-radius: var(--radius);
+ padding: 18px 22px;
+ display: flex;
+ align-items: center;
+ gap: 16px;
+ transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+ }
+ .job-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); border-color: var(--green-light); }
+ .job-logo {
+ width: 44px; height: 44px;
+ border-radius: var(--radius);
+ background: var(--bg-alt);
+ border: 1px solid var(--border);
+ display: grid; place-items: center;
+ font-size: 1.3rem;
+ flex-shrink: 0;
+ }
+ .job-info { flex: 1; min-width: 0; }
+ .job-info h4 { font-size: .93rem; margin-bottom: 2px; }
+ .job-info .j-company { font-size: .8rem; color: var(--green); font-weight: 600; }
+ .job-info .j-meta { font-size: .78rem; color: var(--text-muted); margin-top: 2px; }
+ .job-apply {
+ font-size: .8rem;
+ font-weight: 600;
+ color: var(--white);
+ background: var(--green);
+ padding: 6px 14px;
+ border-radius: 50px;
+ white-space: nowrap;
+ transition: background var(--transition);
+ flex-shrink: 0;
+ }
+ .job-apply:hover { background: var(--green-dark); }
+
+ .newsletter-form {
+ display: flex;
+ gap: 0;
+ max-width: 480px;
+ margin: 24px auto 0;
+ }
+ .newsletter-form input {
+ flex: 1;
+ padding: 12px 18px;
+ border: 2px solid var(--border);
+ border-right: none;
+ border-radius: var(--radius) 0 0 var(--radius);
+ font-size: .95rem;
+ background: var(--bg);
+ color: var(--text);
+ outline: none;
+ }
+ .newsletter-form input:focus { border-color: var(--green); }
+ .newsletter-form button {
+ padding: 12px 22px;
+ background: var(--green);
+ color: var(--white);
+ border: 2px solid var(--green);
+ border-radius: 0 var(--radius) var(--radius) 0;
+ font-weight: 700;
+ font-size: .9rem;
+ cursor: pointer;
+ transition: background var(--transition);
+ white-space: nowrap;
+ }
+ .newsletter-form button:hover { background: var(--green-dark); border-color: var(--green-dark); }
+
+ .involve-card {
+ background: var(--bg-card);
+ border: 1px solid var(--border);
+ border-radius: var(--radius-lg);
+ padding: 28px;
+ text-align: center;
+ transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+ }
+ .involve-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--green); }
+ .involve-icon { font-size: 2.2rem; margin-bottom: 14px; }
+ .involve-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+
+ .alumni-cta-bar {
+ background: var(--green-light);
+ padding: 40px 0;
+ text-align: center;
+ }
+ [data-theme="dark"] .alumni-cta-bar { background: #0d1f17; }
+ .alumni-cta-bar h3 { font-size: 1.3rem; margin-bottom: 10px; }
+ .alumni-cta-bar p { max-width: 50ch; margin: 0 auto 20px; }
+
+ .yearbook-badge {
+ display: inline-block;
+ background: var(--yellow-light);
+ color: var(--yellow-dark);
+ font-size: .7rem;
+ font-weight: 700;
+ text-transform: uppercase;
+ letter-spacing: .08em;
+ padding: 2px 10px;
+ border-radius: 50px;
+ margin-bottom: 10px;
+ }
+ </style>
+</head>
+<body>
+
+ <a class="skip-link" href="#main">Skip to main content</a>
+
+ <div class="topbar">
+ <div class="wrap">
+ <span>University of Roehampton · School of Computing, Engineering and the Built Environment (CEBE)</span>
+ <div class="topbar-links">
+ <a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener">ServiceDesk</a>
+ <a href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">NEST</a>
+ <a href="accessibility.html">Accessibility</a>
+ <a href="support.html">Help</a>
+ </div>
+ </div>
+ </div>
+
+ <header>
+ <div class="wrap nav">
+ <a class="brand" href="index.html" aria-label="University of Roehampton Computing Hub — home">
+                    <img class="brand-img" src="assets/roehampton-logo-white.svg" alt="University of Roehampton" width="94" height="42">
+ </a>
+
+ <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+ <a class="nav-link" href="index.html">Home</a>
+ <a class="nav-link" href="services.html">Services</a>
+ <a class="nav-link" href="programmes.html">Programmes</a>
+ <div class="nav-item">
+ <button class="nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+ Community
+ <svg class="nav-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+ </button>
+ <div class="dropdown" role="menu">
+ <a class="dropdown-link" href="cebe.html#history" role="menuitem">History of our School</a>
+ <a class="dropdown-link" href="student-space.html" role="menuitem">Student Space</a>
+ <a class="dropdown-link" href="industry.html" role="menuitem">Industry</a>
+ <a class="dropdown-link active" href="alumni.html" role="menuitem">Alumni</a>
+ <hr class="dropdown-divider" aria-hidden="true">
+ <a class="dropdown-link" href="cebe.html" role="menuitem">Our School (CEBE)</a>
+ <a class="dropdown-link" href="about.html" role="menuitem">About</a>
+ </div>
+ </div>
+ <a class="nav-link" href="news.html">News</a>
+ <a class="nav-link" href="support.html">Support</a>
+ </nav>
+
+ <div class="nav-actions">
+ <button class="search-btn" id="searchBtn" aria-label="Open search" aria-expanded="false">
+ <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+ </button>
+ <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">
+ <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+ </button>
+ <a class="btn-signin" href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">Sign in</a>
+ <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+ <span></span><span></span><span></span>
+ </button>
+ </div>
+ </div>
+ <div class="search-bar" id="searchBar" role="search">
+ <div class="search-input-wrap">
+ <input type="search" id="searchInput" class="search-input" placeholder="Search the Computing Hub…" aria-label="Search">
+ <button class="search-submit" aria-label="Submit search">
+ <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+ </button>
+ </div>
+ </div>
+ <div class="mobile-menu" id="mobileMenu">
+ <a class="nav-link" href="index.html">Home</a>
+ <a class="nav-link" href="services.html">Services</a>
+ <a class="nav-link" href="programmes.html">Programmes</a>
+ <a class="nav-link" href="student-space.html">Student Space</a>
+ <a class="nav-link" href="industry.html">Industry</a>
+ <a class="nav-link active" href="alumni.html">Alumni</a>
+ <a class="nav-link" href="news.html">News</a>
+ <a class="nav-link" href="about.html">About</a>
+ <a class="nav-link" href="cebe.html">Our School (CEBE)</a>
+ <a class="nav-link" href="support.html">Support</a>
+ <a class="btn-signin" href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">Sign in</a>
+ </div>
+ </header>
+
+ <main id="main">
+
+ <!-- Hero -->
+ <div class="page-hero" aria-labelledby="page-heading">
+ <div class="wrap">
+ <nav class="breadcrumb" aria-label="Breadcrumb">
+ <a href="index.html">Home</a>
+ <span class="breadcrumb-sep" aria-hidden="true">›</span>
+ <span aria-current="page">Alumni Network</span>
+ </nav>
+ <h1 id="page-heading">Computing Alumni Network</h1>
+ <p>Stay connected with Roehampton Computing, find opportunities, and help inspire the next generation of tech talent.</p>
+ <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;">
+ <a class="btn btn-primary" href="mailto:computing@roehampton.ac.uk?subject=Join%20Alumni%20Network">Join the network</a>
+ <a class="btn btn-outline" href="#jobs">View opportunities</a>
+ </div>
+ </div>
+ </div>
+
+ <!-- Alumni Spotlight — yearbook style -->
+ <section class="section" aria-labelledby="spotlight-heading">
+ <div class="wrap">
+ <div class="section-head">
+ <span class="eyebrow">Class Spotlight</span>
+ <h2 id="spotlight-heading">Outstanding Roehampton graduates</h2>
+ <p>A selection of alumni who are making their mark — across fintech, public sector, cybersecurity and beyond.</p>
+ </div>
+ <div class="grid-3">
+
+ <div class="alumni-card" style="flex-direction:column;align-items:center;text-align:center;padding:32px 24px;">
+ <div class="yearbook-badge">Class of 2026 · Featured</div>
+ <div class="alumni-avatar" style="width:80px;height:80px;margin:0 auto 16px;overflow:hidden;"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=60" alt="" loading="lazy" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:50%;"></div>
+ <h3 style="font-size:1.1rem;margin-bottom:4px;">Maria Chen</h3>
+ <div class="al-role" style="font-size:.85rem;color:var(--green);font-weight:600;margin-bottom:2px;">Software Engineer · Monzo</div>
+ <div class="al-year" style="font-size:.8rem;color:var(--text-muted);margin-bottom:14px;">BSc Computer Science, First Class Honours</div>
+ <blockquote style="font-size:.88rem;font-style:italic;color:var(--text-muted);line-height:1.65;">"Roehampton gave me the technical foundation and the confidence to build things people actually use. I went from a complete beginner to shipping production code in 3 years."</blockquote>
+ <a class="li-link" href="http://linkedin.com/" target="_blank" rel="noopener" aria-label="View LinkedIn profile"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+ </div>
+
+ <div class="alumni-card" style="flex-direction:column;align-items:center;text-align:center;padding:32px 24px;">
+ <div class="yearbook-badge">Class of 2025</div>
+ <div class="alumni-avatar" style="width:80px;height:80px;margin:0 auto 16px;overflow:hidden;"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=60" alt="" loading="lazy" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:50%;"></div>
+ <h3 style="font-size:1.1rem;margin-bottom:4px;">Tobias Osei</h3>
+ <div class="al-role" style="font-size:.85rem;color:var(--green);font-weight:600;margin-bottom:2px;">Security Analyst · GCHQ</div>
+ <div class="al-year" style="font-size:.8rem;color:var(--text-muted);margin-bottom:14px;">MSc Cyber Security, Distinction</div>
+ <blockquote style="font-size:.88rem;font-style:italic;color:var(--text-muted);line-height:1.65;">"The research seminars were world-class. I was contributing to a published paper before I'd even submitted my dissertation. The department punches well above its weight."</blockquote>
+ <a class="li-link" href="http://linkedin.com/" target="_blank" rel="noopener" aria-label="View LinkedIn profile"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+ </div>
+
+ <div class="alumni-card" style="flex-direction:column;align-items:center;text-align:center;padding:32px 24px;">
+ <div class="yearbook-badge">Class of 2025</div>
+ <div class="alumni-avatar" style="width:80px;height:80px;margin:0 auto 16px;overflow:hidden;"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=60" alt="" loading="lazy" style="width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:50%;"></div>
+ <h3 style="font-size:1.1rem;margin-bottom:4px;">Priya Nair</h3>
+ <div class="al-role" style="font-size:.85rem;color:var(--green);font-weight:600;margin-bottom:2px;">Data Scientist · NHS Digital</div>
+ <div class="al-year" style="font-size:.8rem;color:var(--text-muted);margin-bottom:14px;">MSc Data Science, Merit</div>
+ <blockquote style="font-size:.88rem;font-style:italic;color:var(--text-muted);line-height:1.65;">"I switched careers at 31. Roehampton's conversion programme made it possible — supportive lecturers, a practical curriculum and a community that truly wanted me to succeed."</blockquote>
+ <a class="li-link" href="http://linkedin.com/" target="_blank" rel="noopener" aria-label="View LinkedIn profile"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+ </div>
+
+ </div>
+
+ <!-- More alumni row -->
+ <h3 style="margin-top:48px;margin-bottom:20px;">More from our alumni community</h3>
+ <div style="display:flex;flex-direction:column;gap:12px;">
+ <div class="alumni-card">
+ <div class="alumni-avatar"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=60" alt="" loading="lazy"></div>
+ <div class="alumni-body">
+ <h3>James Whitfield</h3>
+ <div class="al-role">Lead Developer · Capgemini</div>
+ <div class="al-year">BSc Software Engineering, Class of 2024</div>
+ <blockquote>"The group projects at Roehampton were genuinely challenging — and they prepared me perfectly for working in a real software team."</blockquote>
+ <a class="li-link" href="http://linkedin.com/" target="_blank" rel="noopener" aria-label="View LinkedIn profile"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+ </div>
+ </div>
+ <div class="alumni-card">
+ <div class="alumni-avatar"><img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=200&q=60" alt="" loading="lazy"></div>
+ <div class="alumni-body">
+ <h3>Aisha Mensah</h3>
+ <div class="al-role">UX Designer · BBC Digital</div>
+ <div class="al-year">BSc Digital Design, Class of 2024</div>
+ <blockquote>"I didn't expect to end up at the BBC — but the portfolio I built at Roehampton opened doors I didn't know existed."</blockquote>
+ <a class="li-link" href="http://linkedin.com/" target="_blank" rel="noopener" aria-label="View LinkedIn profile"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+ </div>
+ </div>
+ <div class="alumni-card">
+ <div class="alumni-avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=60" alt="" loading="lazy"></div>
+ <div class="alumni-body">
+ <h3>Ravi Sharma</h3>
+ <div class="al-role">AI Research Engineer · DeepMind</div>
+ <div class="al-year">MSc Artificial Intelligence, Class of 2024</div>
+ <blockquote>"The MSc AI programme at Roehampton is excellent. The research supervision helped me get a paper accepted at NeurIPS before I graduated."</blockquote>
+ <a class="li-link" href="http://linkedin.com/" target="_blank" rel="noopener" aria-label="View LinkedIn profile"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Jobs board -->
+ <section class="section section-alt" id="jobs" aria-labelledby="jobs-heading">
+ <div class="wrap">
+ <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px;flex-wrap:wrap;gap:16px;">
+ <div>
+ <span class="eyebrow">Opportunities</span>
+ <h2 id="jobs-heading" style="margin-top:8px;">Jobs board for Computing graduates</h2>
+ <p style="margin-top:4px;">Open to current students and alumni. Updated regularly by our industry partners.</p>
+ </div>
+ <a class="btn btn-ghost-green btn-sm" href="mailto:computing@roehampton.ac.uk?subject=Submit%20a%20Job%20Posting">Post a job <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ <div class="job-list">
+
+ <div class="job-card">
+ <div class="job-logo"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+ <div class="job-info">
+ <h4>Junior Software Engineer</h4>
+ <div class="j-company">TechLondon Ltd</div>
+ <div class="j-meta">Full-time · London (hybrid) · Closing 31 Jul 2026</div>
+ </div>
+ <span class="badge badge-green">New</span>
+ <a class="job-apply" href="mailto:computing@roehampton.ac.uk?subject=Job%20Ref%3A%20TL-JSE">Apply</a>
+ </div>
+
+ <div class="job-card">
+ <div class="job-logo"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+ <div class="job-info">
+ <h4>Cyber Security Analyst</h4>
+ <div class="j-company">CyberShield UK</div>
+ <div class="j-meta">Full-time · Remote / London · Closing 15 Aug 2026</div>
+ </div>
+ <span class="badge badge-yellow">Featured</span>
+ <a class="job-apply" href="mailto:computing@roehampton.ac.uk?subject=Job%20Ref%3A%20CS-CSA">Apply</a>
+ </div>
+
+ <div class="job-card">
+ <div class="job-logo"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+ <div class="job-info">
+ <h4>Data Science Graduate Scheme</h4>
+ <div class="j-company">Barclays Technology</div>
+ <div class="j-meta">Full-time · London · 2-year rotational · Closing 30 Aug 2026</div>
+ </div>
+ <span class="badge badge-green">New</span>
+ <a class="job-apply" href="mailto:computing@roehampton.ac.uk?subject=Job%20Ref%3A%20BT-DSG">Apply</a>
+ </div>
+
+ <div class="job-card">
+ <div class="job-logo"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+ <div class="job-info">
+ <h4>UX Researcher (6-month contract)</h4>
+ <div class="j-company">Capgemini</div>
+ <div class="j-meta">Contract · London · Closing 1 Sep 2026</div>
+ </div>
+ <span class="badge badge-gray">Contract</span>
+ <a class="job-apply" href="mailto:computing@roehampton.ac.uk?subject=Job%20Ref%3A%20CAP-UXR">Apply</a>
+ </div>
+
+ <div class="job-card">
+ <div class="job-logo"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+ <div class="job-info">
+ <h4>Python Developer</h4>
+ <div class="j-company">NHS Digital</div>
+ <div class="j-meta">Full-time · Leeds / Remote · Closing 15 Sep 2026</div>
+ </div>
+ <span class="badge badge-green">New</span>
+ <a class="job-apply" href="mailto:computing@roehampton.ac.uk?subject=Job%20Ref%3A%20NHS-PY">Apply</a>
+ </div>
+
+ </div>
+ <p style="font-size:.83rem;color:var(--text-muted);margin-top:20px;text-align:center;">To apply, email the reference to <a href="mailto:computing@roehampton.ac.uk" style="color:var(--green);font-weight:600;">computing@roehampton.ac.uk</a>. Industry partners: <a href="mailto:computing@roehampton.ac.uk?subject=Submit%20a%20Job%20Posting" style="color:var(--green);font-weight:600;">submit a job posting</a>.</p>
+ </div>
+ </section>
+
+ <!-- Networking events + Mentorship -->
+ <section class="section" aria-labelledby="network-heading">
+ <div class="wrap">
+ <div class="networking-grid">
+
+ <!-- Events -->
+ <div>
+ <span class="eyebrow">Networking Events</span>
+ <h2 id="network-heading" style="margin:8px 0 24px;">Upcoming events for alumni</h2>
+ <ul class="al-event-list">
+ <li class="al-event-item">
+ <div class="al-event-date"><span class="al-ev-day">18</span><span class="al-ev-mon">Jul</span></div>
+ <div class="al-event-body">
+ <h4>Alumni Coffee Morning</h4>
+ <p>Online · Zoom · 10:00–11:00 · All graduates welcome</p>
+ </div>
+ <a class="al-event-register" href="mailto:computing@roehampton.ac.uk?subject=RSVP%20Alumni%20Coffee%2018%20Jul">Register <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </li>
+ <li class="al-event-item">
+ <div class="al-event-date"><span class="al-ev-day">1</span><span class="al-ev-mon">Sep</span></div>
+ <div class="al-event-body">
+ <h4>Industry Fair &amp; Hackathon Kickoff</h4>
+ <p>Erasmus House Atrium · All day · Alumni &amp; employer tables</p>
+ </div>
+ <a class="al-event-register" href="mailto:computing@roehampton.ac.uk?subject=RSVP%20Industry%20Fair%201%20Sep">Register <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </li>
+ <li class="al-event-item">
+ <div class="al-event-date"><span class="al-ev-day">24</span><span class="al-ev-mon">Sep</span></div>
+ <div class="al-event-body">
+ <h4>Women in Tech Panel: Alumni Edition</h4>
+ <p>Digby Stuart LT1 &amp; livestream · 13:00–15:00</p>
+ </div>
+ <a class="al-event-register" href="mailto:computing@roehampton.ac.uk?subject=RSVP%20Women%20in%20Tech%2024%20Sep">Register <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </li>
+ <li class="al-event-item">
+ <div class="al-event-date"><span class="al-ev-day">15</span><span class="al-ev-mon">Oct</span></div>
+ <div class="al-event-body">
+ <h4>Annual Alumni Networking Dinner</h4>
+ <p>The Barn at Roehampton · 19:00 · Dress code: smart casual</p>
+ </div>
+ <a class="al-event-register" href="mailto:computing@roehampton.ac.uk?subject=RSVP%20Alumni%20Dinner%2015%20Oct">Register <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </li>
+ </ul>
+ </div>
+
+ <!-- Mentorship -->
+ <div>
+ <span class="eyebrow">Mentorship Programme</span>
+ <h2 style="margin:8px 0 24px;">Give back. Stay connected.</h2>
+ <div class="mentorship-card">
+ <h3>Become a mentor</h3>
+ <p>Share your career journey with a current Computing student. Commit to just 2 hours a month — and make a real difference.</p>
+ <a class="btn btn-primary" href="mailto:computing@roehampton.ac.uk?subject=Mentor%20Application">Become a mentor</a>
+ </div>
+ <div class="card" style="margin-top:20px;">
+ <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
+ <h3>Find a mentor</h3>
+ <p>Current students can request a mentor from our alumni network — someone who has walked the same path and can help you navigate yours.</p>
+ <a class="card-link" href="mailto:computing@roehampton.ac.uk?subject=Find%20a%20Mentor">Request a mentor <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </div>
+
+ </div>
+ </div>
+ </section>
+
+ <!-- Newsletter -->
+ <section class="section section-alt" aria-labelledby="newsletter-heading">
+ <div class="wrap" style="text-align:center;">
+ <span class="eyebrow">Stay Connected</span>
+ <h2 id="newsletter-heading" style="margin:12px auto 12px;max-width:22ch;">The Computing Alumni Newsletter</h2>
+ <p style="max-width:52ch;margin:0 auto;">Quarterly news from the department — research updates, events, job postings and alumni spotlights, straight to your inbox.</p>
+ <form class="newsletter-form" action="mailto:computing@roehampton.ac.uk" method="get" aria-label="Newsletter sign up">
+ <input type="email" name="subject" placeholder="Your email address" required aria-label="Email address">
+ <button type="submit">Subscribe</button>
+ </form>
+ <p style="font-size:.78rem;color:var(--text-muted);margin-top:12px;">No spam. Unsubscribe at any time.</p>
+ </div>
+ </section>
+
+ <!-- Get involved -->
+ <section class="section" aria-labelledby="involve-heading">
+ <div class="wrap">
+ <div class="section-head">
+ <span class="eyebrow">Give Back</span>
+ <h2 id="involve-heading">Ways to get involved</h2>
+ <p>You don't need to donate money to make a difference. Your time and expertise mean just as much.</p>
+ </div>
+ <div class="grid-3">
+ <div class="involve-card">
+ <div class="involve-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+ <h3>Guest Lecture</h3>
+ <p>Share your expertise with current students in a 1-hour session — in person or online. Flexible scheduling, lasting impact.</p>
+ <a class="card-link" href="mailto:computing@roehampton.ac.uk?subject=Guest%20Lecture%20Request" style="margin-top:16px;justify-content:center;">Get in touch <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ <div class="involve-card">
+ <div class="involve-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+ <h3>Offer a Placement</h3>
+ <p>Host a Computing student placement at your organisation. Supported by the department — we handle the paperwork.</p>
+ <a class="card-link" href="industry.html" style="margin-top:16px;justify-content:center;">Placement info <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ <div class="involve-card">
+ <div class="involve-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+ <h3>Fund a Scholarship</h3>
+ <p>Support a student from an underrepresented background. Named scholarships from £500. Your support changes lives.</p>
+ <a class="card-link" href="mailto:computing@roehampton.ac.uk?subject=Scholarship%20Enquiry" style="margin-top:16px;justify-content:center;">Enquire <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Alumni CTA bar -->
+ <div class="alumni-cta-bar" aria-label="Are you a Roehampton Computing alumnus?">
+ <div class="wrap">
+ <h3>Are you a Roehampton Computing alumnus?</h3>
+ <p style="max-width:50ch;margin:8px auto 20px;">Update your details, join the network, and help us celebrate what the Computing community has achieved.</p>
+ <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+ <a class="btn btn-green" href="mailto:computing@roehampton.ac.uk?subject=Alumni%20Update%20-%20Details">Update your details</a>
+ <a class="btn btn-ghost-green" href="mailto:computing@roehampton.ac.uk?subject=Join%20Alumni%20Network">Join the network</a>
+ </div>
+ </div>
+ </div>
+
+ </main>
+
+ <footer role="contentinfo">
+ <div class="wrap">
+
+ <!-- Academic area band -->
+ <div class="footer-cebe">
+ <div>
+ <span class="cebe-kicker">Our academic area</span>
+ <h3>School of Computing, Engineering and the Built Environment (CEBE)</h3>
+ <p>A connected, inclusive community where innovation meets opportunity — professionally focused education designed with industry, in purpose-built spaces like the Sir David Bell Building.</p>
+ </div>
+ <a class="btn-cebe" href="cebe.html">Discover our School <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+
+ <!-- Main columns -->
+ <div class="footer-top">
+ <div class="footer-call">
+ <div class="footer-logo"><img class="footer-logo-img" src="assets/roehampton-logo-white.svg" alt="University of Roehampton" width="120" height="53"></div>
+ <h3>Call us at +44 (0)20 8392 3000</h3>
+ <p class="call-note">Mon–Fri · 9am–5pm. <a href="support.html#enquiries">See contact by enquiry type.</a></p>
+ <p style="margin-top:14px;font-size:.82rem;">Digby Stuart College · Roehampton Lane<br>London SW15 5PH</p>
+ </div>
+ <div>
+ <h4>Already a student?</h4>
+ <ul class="icon-links">
+ <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><a href="https://moodle.roehampton.ac.uk" target="_blank" rel="noopener">Moodle VLE</a></li>
+ <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><a href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">NEST student portal</a></li>
+ <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><a href="services.html#students">Software downloads</a></li>
+ <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><a href="services.html#students">Lab booking</a></li>
+ <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/></svg><a href="student-space.html">Thesis &amp; project guidance</a></li>
+ <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="support.html">IT support</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>Explore</h4>
+ <ul>
+ <li><a href="index.html">Home</a></li>
+ <li><a href="services.html">Services</a></li>
+ <li><a href="programmes.html">Programmes</a></li>
+ <li><a href="news.html">News</a></li>
+ <li><a href="about.html">About</a></li>
+ <li><a href="support.html">Support</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>Community</h4>
+ <ul>
+ <li><a href="student-space.html">Student Space</a></li>
+ <li><a href="industry.html">Industry Partnerships</a></li>
+ <li><a href="alumni.html">Alumni Network</a></li>
+ <li><a href="alumni.html#jobs">Jobs Board</a></li>
+ <li><a href="news.html#events">Events &amp; Seminars</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>Contact Us</h4>
+ <ul>
+ <li><a href="support.html#enquiries">By enquiry type</a></li>
+ <li><a href="programmes.html#admissions">Admissions</a></li>
+ <li><a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener">ServiceDesk</a></li>
+ <li><a href="about.html#directions">How to get here</a></li>
+ <li><a href="https://roehamptonstudent.com" target="_blank" rel="noopener">Students' Union</a></li>
+ </ul>
+ </div>
+ </div>
+
+ <!-- Social + seal -->
+ <div class="footer-social-row">
+ <div class="footer-social">
+ <h4>Follow us on</h4>
+ <a class="social-btn" href="https://www.facebook.com/roehamptonuni/" target="_blank" rel="noopener" aria-label="University of Roehampton on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+ <a class="social-btn" href="https://x.com/RoehamptonUni" target="_blank" rel="noopener" aria-label="University of Roehampton on X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg></a>
+ <a class="social-btn" href="https://www.instagram.com/uni_roehampton" target="_blank" rel="noopener" aria-label="University of Roehampton on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a class="social-btn" href="https://www.linkedin.com/school/university-of-roehampton/" target="_blank" rel="noopener" aria-label="University of Roehampton on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+ <a class="social-btn" href="https://www.youtube.com/@RoehamptonAcUk" target="_blank" rel="noopener" aria-label="University of Roehampton on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.92 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon class="fill" points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+ </div>
+ <div class="footer-seal">
+ <a class="bcs-lockup" href="https://www.bcs.org" target="_blank" rel="noopener">
+ <img src="assets/bcs-educational-affiliate.png" alt="BCS, The Chartered Institute for IT — Educational Affiliate" width="190" height="91" loading="lazy">
+ </a>
+ </div>
+ </div>
+
+ <!-- Legal -->
+ <div class="footer-bottom">
+ <span>© 2026 University of Roehampton · Computing Department. All rights reserved.</span>
+ <div class="footer-bottom-links">
+ <a href="accessibility.html">Accessibility</a>
+ <a href="privacy.html">Privacy Notice</a>
+ <a href="privacy.html#cookies">Cookie Policy</a>
+ <a href="sitemap.html">Site Map</a>
+ </div>
+ </div>
+
+ </div>
+ </footer>
+
+ <button class="fast-feedback-btn" id="fastFeedback" aria-label="Open feedback" aria-expanded="false">Feedback</button>
+ <div class="fast-feedback-panel" id="fastFeedbackPanel" hidden role="dialog" aria-label="Quick feedback">
+ <button class="ff-close-btn" id="ffClose" aria-label="Close feedback">×</button>
+ <h3>Quick Feedback</h3>
+ <p>How helpful was this page?</p>
+ <div class="ff-stars" role="group" aria-label="Star rating">
+ <button class="ff-star" aria-label="1 star" aria-pressed="false">☆</button>
+ <button class="ff-star" aria-label="2 stars" aria-pressed="false">☆</button>
+ <button class="ff-star" aria-label="3 stars" aria-pressed="false">☆</button>
+ <button class="ff-star" aria-label="4 stars" aria-pressed="false">☆</button>
+ <button class="ff-star" aria-label="5 stars" aria-pressed="false">☆</button>
+ </div>
+ <textarea class="ff-comment" placeholder="Any comments? (optional)" aria-label="Comments"></textarea>
+ <a class="btn btn-green btn-sm" href="mailto:computing@roehampton.ac.uk?subject=Alumni%20Page%20Feedback" style="display:block;text-align:center;">Send feedback</a>
+ </div>
+
+ <script src="assets/js/main.js"></script>
+</body>
+</html>

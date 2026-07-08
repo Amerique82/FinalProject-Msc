@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content="The official information hub for the Computing Department at the University of Roehampton. Services, programmes, research, and support for students and staff.">
+ <title>Computing Hub — University of Roehampton</title>
+ <link rel="stylesheet" href="assets/css/styles.css">
+ <style>
+ /* ── Page-specific ─────────────────────────────────── */
+ .hero-search {
+ display: flex;
+ gap: 0;
+ max-width: 560px;
+ background: var(--bg-card);
+ border: 1.5px solid var(--border);
+ border-radius: 50px;
+ padding: 6px;
+ box-shadow: var(--shadow-sm);
+ }
+ .hero-search:focus-within { border-color: var(--green); }
+ .hero-search input {
+ flex: 1; background: transparent; border: none; outline: none;
+ padding: 10px 16px; color: var(--text); font-size: .95rem;
+ }
+ .hero-search input::placeholder { color: var(--text-muted); }
+ .hero-search button {
+ background: var(--green); color: var(--white); border-radius: 50px;
+ padding: 10px 22px; font-weight: 500; font-size: .9rem;
+ cursor: pointer; transition: background .2s; white-space: nowrap;
+ }
+ .hero-search button:hover { background: var(--green-dark); }
+ .quick-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+ .quick-link {
+ background: var(--yellow); color: var(--dark);
+ border: 1px solid var(--yellow); border-radius: 50px;
+ padding: 6px 16px; font-size: .8rem; font-weight: 500;
+ transition: background .2s, color .2s, border-color .2s;
+ }
+ .quick-link:hover { background: var(--yellow-dark); color: var(--white); border-color: var(--yellow-dark); }
+
+ /* Seminars + Research 2-col layout */
+ .two-col-grid {
+ display: grid;
+ grid-template-columns: 3fr 2fr;
+ gap: 48px;
+ align-items: start;
+ }
+ @media (max-width: 860px) { .two-col-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+ /* Service tiles */
+ .cat-tile {
+ background: var(--bg-card); border: 1px solid var(--border);
+ border-radius: var(--radius-lg); padding: 32px 24px; text-align: center;
+ cursor: pointer; display: block;
+ transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+ }
+ .cat-tile:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--green); }
+ .cat-tile-icon { font-size: 2.4rem; margin-bottom: 16px; }
+ .cat-tile h3 { font-size: 1.05rem; margin-bottom: 6px; }
+ .cat-tile .count { font-size: .8rem; color: var(--green); font-weight: 600; }
+ .resource-icon { font-size: 1.8rem; margin-bottom: 12px; }
+ </style>
+</head>
+<body>
+
+ <a class="skip-link" href="#main">Skip to main content</a>
+
+ <!-- Announcement -->
+ <div class="announcement" role="alert">
+ <span><strong>Semester 1, 2026–27 is underway.</strong> Access your module materials, timetables and lab bookings on <a href="student-space.html" style="color:var(--green-dark);font-weight:600;">Student Space <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></span>
+ <button class="announcement-close" aria-label="Close announcement">×</button>
+ </div>
+
+ <!-- Top bar -->
+ <div class="topbar">
+ <div class="wrap">
+ <span>University of Roehampton · School of Computing, Engineering and the Built Environment (CEBE)</span>
+ <div class="topbar-links">
+ <a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener">ServiceDesk</a>
+ <a href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">NEST</a>
+ <a href="accessibility.html">Accessibility</a>
+ <a href="support.html">Help</a>
+ </div>
+ </div>
+ </div>
+
+ <!-- Header -->
+ <header>
+ <div class="wrap nav">
+ <a class="brand" href="index.html" aria-label="University of Roehampton Computing Hub — home">
+                    <img class="brand-img" src="assets/roehampton-logo-white.svg" alt="University of Roehampton" width="94" height="42">
+ </a>
+
+ <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+ <a class="nav-link active" href="index.html">Home</a>
+ <a class="nav-link" href="services.html">Services</a>
+ <a class="nav-link" href="programmes.html">Programmes</a>
+
+ <div class="nav-item">
+ <button class="nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+ Community
+ <svg class="nav-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+ </button>
+ <div class="dropdown" role="menu">
+ <a class="dropdown-link" href="cebe.html#history" role="menuitem">History of our School</a>
+ <a class="dropdown-link" href="student-space.html" role="menuitem">Student Space</a>
+ <a class="dropdown-link" href="industry.html" role="menuitem">Industry</a>
+ <a class="dropdown-link" href="alumni.html" role="menuitem">Alumni</a>
+ <hr class="dropdown-divider" aria-hidden="true">
+ <a class="dropdown-link" href="cebe.html" role="menuitem">Our School (CEBE)</a>
+ <a class="dropdown-link" href="about.html" role="menuitem">About</a>
+ </div>
+ </div>
+
+ <a class="nav-link" href="news.html">News</a>
+ <a class="nav-link" href="support.html">Support</a>
+ </nav>
+
+ <div class="nav-actions">
+ <button class="search-btn" id="searchBtn" aria-label="Open search" aria-expanded="false">
+ <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+ </button>
+ <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">
+ <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+ </button>
+ <a class="btn-signin" href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">Sign in</a>
+ <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+ <span></span><span></span><span></span>
+ </button>
+ </div>
+ </div>
+
+ <!-- Search bar -->
+ <div class="search-bar" id="searchBar" role="search">
+ <div class="search-input-wrap">
+ <input type="search" id="searchInput" class="search-input" placeholder="Search services, guides, software…" aria-label="Search the Computing Hub">
+ <button class="search-submit" aria-label="Submit search">
+ <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+ </button>
+ </div>
+ </div>
+
+ <!-- Mobile menu -->
+ <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+ <a class="nav-link active" href="index.html">Home</a>
+ <a class="nav-link" href="services.html">Services</a>
+ <a class="nav-link" href="programmes.html">Programmes</a>
+ <a class="nav-link" href="student-space.html">Student Space</a>
+ <a class="nav-link" href="industry.html">Industry</a>
+ <a class="nav-link" href="alumni.html">Alumni</a>
+ <a class="nav-link" href="news.html">News</a>
+ <a class="nav-link" href="about.html">About</a>
+ <a class="nav-link" href="cebe.html">Our School (CEBE)</a>
+ <a class="nav-link" href="support.html">Support</a>
+ <a class="btn-signin" href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">Sign in</a>
+ </div>
+ </header>
+
+ <main id="main">
+
+ <!-- ── Hero carousel ──────────────────────────────────── -->
+ <section class="carousel" id="heroCarousel" aria-roledescription="carousel" aria-label="Highlights from the Computing Department">
+ <div class="carousel-track" id="carouselTrack">
+
+ <a class="carousel-slide" href="cebe.html" aria-label="Welcome to CEBE — School of Computing, Engineering and the Built Environment">
+ <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1600&q=60" alt="Students listening to a lecture in a modern university lecture theatre" loading="eager">
+ <div class="carousel-content">
+ <span class="carousel-kicker">Welcome to CEBE</span>
+ <h2>School of Computing, Engineering and the Built Environment</h2>
+ <p>Join a vibrant community where we shape sustainable futures through innovation, collaboration, and real-world impact.</p>
+ <span class="carousel-cta">Discover our School</span>
+ </div>
+ </a>
+
+ <a class="carousel-slide" href="news.html#events" aria-label="Roehampton Computing Conference 2026 — read more and register">
+ <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1600&q=60" alt="Audience at a technology conference watching a keynote presentation" loading="lazy">
+ <div class="carousel-content">
+ <span class="carousel-kicker">Conference · 15–16 October 2026</span>
+ <h2>Roehampton Computing Conference 2026</h2>
+ <p>Two days of talks, workshops and networking on AI, cyber security and human-centred design — open to students, staff, alumni and industry.</p>
+ <span class="carousel-cta">Register your place</span>
+ </div>
+ </a>
+
+ <a class="carousel-slide" href="programmes.html#admissions" aria-label="Open Day — explore our programmes and how to apply">
+ <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=60" alt="University students walking across a campus courtyard" loading="lazy">
+ <div class="carousel-content">
+ <span class="carousel-kicker">Open Day · 21 November 2026</span>
+ <h2>Discover Computing at Roehampton</h2>
+ <p>Meet our academics, tour the labs and find out how to apply for 2027 entry — 30 programmes from foundation to postgraduate.</p>
+ <span class="carousel-cta">Explore programmes &amp; admissions</span>
+ </div>
+ </a>
+
+ <a class="carousel-slide" href="student-space.html" aria-label="Student Project Showcase — see what our students build">
+ <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=60" alt="Students collaborating on laptops during a coding session" loading="lazy">
+ <div class="carousel-content">
+ <span class="carousel-kicker">Student showcase · Semester 1</span>
+ <h2>See what our students are building</h2>
+ <p>From award-winning cyber security tools to AI research prototypes — explore final-year projects and join the next hackathon.</p>
+ <span class="carousel-cta">Visit the Student Space</span>
+ </div>
+ </a>
+
+ </div>
+
+ <button class="carousel-arrow prev" id="carouselPrev" aria-label="Previous slide">
+ <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+ </button>
+ <button class="carousel-arrow next" id="carouselNext" aria-label="Next slide">
+ <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+ </button>
+ <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Choose slide">
+ <button class="carousel-dot active" role="tab" aria-selected="true" aria-label="Slide 1: Welcome to CEBE"></button>
+ <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Slide 2: Computing Conference 2026"></button>
+ <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Slide 3: Open Day and admissions"></button>
+ <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Slide 4: Student project showcase"></button>
+ </div>
+ <span class="carousel-status" id="carouselStatus" aria-live="polite">1 / 4</span>
+ </section>
+
+ <!-- ── Search band ────────────────────────────────────── -->
+ <section class="section-sm" style="background:var(--bg-alt);border-bottom:1px solid var(--border);" aria-labelledby="search-band-heading">
+ <div class="wrap">
+ <h2 id="search-band-heading" class="sr-only" style="position:absolute;left:-9999px;">Search the Computing Hub</h2>
+ <form class="hero-search" role="search" action="support.html" method="get" style="margin:0 auto;">
+ <input type="search" name="q" placeholder="Search for a service, guide or resource…" aria-label="Search">
+ <button type="submit">Search</button>
+ </form>
+ <div class="quick-links" aria-label="Quick access links" style="justify-content:center;">
+ <a class="quick-link" href="news.html#events">Events</a>
+ <a class="quick-link" href="alumni.html#jobs">Job Board</a>
+ <a class="quick-link" href="#research">Research</a>
+ <a class="quick-link" href="student-space.html#thesis">Project Guidelines</a>
+ <a class="quick-link" href="support.html">Support</a>
+ </div>
+ </div>
+ </section>
+
+ <!-- ── Stats ──────────────────────────────────────────── -->
+ <div class="stats-bar" aria-label="Department key figures">
+ <div class="wrap">
+ <div class="stats-grid">
+ <div>
+ <div class="stat-num" data-target="320" data-suffix="+">320+</div>
+ <div class="stat-label">Computing students</div>
+ </div>
+ <div>
+ <div class="stat-num" data-target="30" data-suffix="">30</div>
+ <div class="stat-label">Programmes offered</div>
+ </div>
+ <div>
+ <div class="stat-num" data-target="40" data-suffix="+">40+</div>
+ <div class="stat-label">Free software licences</div>
+ </div>
+ <div>
+ <div class="stat-num" data-target="247" data-suffix="">24/7</div>
+ <div class="stat-label">Online support access</div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- ── Services ───────────────────────────────────────── -->
+ <section class="section" id="services" aria-labelledby="services-heading">
+ <div class="wrap">
+ <div class="section-head">
+ <span class="eyebrow">Services</span>
+ <h2 id="services-heading">What can we help with?</h2>
+ <p>Browse all Computing Department services, organised by area.</p>
+ </div>
+ <div class="grid-4">
+ <a class="cat-tile" href="services.html#students">
+ <div class="cat-tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
+ <h3>Computing</h3>
+ <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:8px;">Software, labs, accounts and storage</p>
+ <span class="count">8 services</span>
+ </a>
+ <a class="cat-tile" href="services.html#networks">
+ <div class="cat-tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
+ <h3>Networks</h3>
+ <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:8px;">Wi-Fi, VPN and campus connectivity</p>
+ <span class="count">5 services</span>
+ </a>
+ <a class="cat-tile" href="services.html#learning">
+ <div class="cat-tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+ <h3>Learning Tech</h3>
+ <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:8px;">Moodle, Panopto and teaching tools</p>
+ <span class="count">6 services</span>
+ </a>
+ <a class="cat-tile" href="services.html#admin">
+ <div class="cat-tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+ <h3>Administration</h3>
+ <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:8px;">Systems, security and compliance</p>
+ <span class="count">5 services</span>
+ </a>
+ </div>
+ <div style="text-align:center;margin-top:36px;">
+ <a class="btn btn-green" href="services.html">View all services</a>
+ </div>
+ </div>
+ </section>
+
+ <!-- ── Programmes Showcase ────────────────────────────── -->
+ <section class="section section-alt" id="programmes" aria-labelledby="prog-heading">
+ <div class="wrap">
+ <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap;gap:16px;">
+ <div>
+ <span class="eyebrow">Study with Us</span>
+ <h2 id="prog-heading" style="margin-top:8px;">30 programmes in Computing</h2>
+ <p style="max-width:56ch;margin-top:8px;">From short courses to apprenticeships, undergraduate to postgraduate — find your path.</p>
+ </div>
+ <a href="programmes.html" class="btn btn-ghost-green btn-sm">Full catalogue <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+
+ <!-- Programme tabs -->
+ <div class="prog-tabs" role="tablist" aria-label="Programmes by level">
+ <button class="prog-tab active" role="tab" aria-selected="true" aria-controls="panel-ug" data-panel="ug">Undergraduate <span class="tab-count">11</span></button>
+ <button class="prog-tab" role="tab" aria-selected="false" aria-controls="panel-pg" data-panel="pg">Postgraduate <span class="tab-count">9</span></button>
+ <button class="prog-tab" role="tab" aria-selected="false" aria-controls="panel-voc" data-panel="voc">Vocational <span class="tab-count">6</span></button>
+ <button class="prog-tab" role="tab" aria-selected="false" aria-controls="panel-cpd" data-panel="cpd">Apprenticeships &amp; CPD <span class="tab-count">4</span></button>
+ </div>
+
+ <!-- UG panel -->
+ <div class="prog-tab-panel" id="panel-ug" role="tabpanel">
+ <ul class="prog-list">
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/ai-machine-learning/" target="_blank" rel="noopener" class="prog-list-name">AI &amp; Machine Learning</a><span class="prog-list-qual">BSc (Hons)</span></li>
+ <li class="prog-list-item suspended-row"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/business-and-computing/" target="_blank" rel="noopener" class="prog-list-name">Business and Computing</a><span class="prog-list-qual">BSc (Hons) <em>· suspended 2026</em></span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/computer-science/" target="_blank" rel="noopener" class="prog-list-name">Computer Science</a><span class="prog-list-qual">BSc (Hons)</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/computer-science-top-up/" target="_blank" rel="noopener" class="prog-list-name">Computer Science (Top-up)</a><span class="prog-list-qual">BSc (Hons)</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/computing-and-digital-technologies/" target="_blank" rel="noopener" class="prog-list-name">Computing and Digital Technologies</a><span class="prog-list-qual">BSc (Hons)</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/cyber-security/" target="_blank" rel="noopener" class="prog-list-name">Cyber Security</a><span class="prog-list-qual">BSc (Hons)</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/cyber-security-top-up/" target="_blank" rel="noopener" class="prog-list-name">Cyber Security (Top-up)</a><span class="prog-list-qual">BSc (Hons)</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/digital-design/" target="_blank" rel="noopener" class="prog-list-name">Digital Design</a><span class="prog-list-qual">BSc (Hons)</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/graphic-design/" target="_blank" rel="noopener" class="prog-list-name">Graphic Design</a><span class="prog-list-qual">BA (Hons)</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/software-engineering/" target="_blank" rel="noopener" class="prog-list-name">Software Engineering</a><span class="prog-list-qual">BSc (Hons)</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/software-engineering-top-up/" target="_blank" rel="noopener" class="prog-list-name">Software Engineering (Top-up)</a><span class="prog-list-qual">BSc (Hons)</span></li>
+ </ul>
+ </div>
+
+ <!-- PG panel -->
+ <div class="prog-tab-panel" id="panel-pg" role="tabpanel" hidden>
+ <ul class="prog-list">
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/postgraduate-programmes/ai-and-digital-media/" target="_blank" rel="noopener" class="prog-list-name">AI and Digital Media</a><span class="prog-list-qual">MSc</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/postgraduate-programmes/ai-for-business/" target="_blank" rel="noopener" class="prog-list-name">AI for Business</a><span class="prog-list-qual">MSc</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/postgraduate-programmes/artificial-intelligence/" target="_blank" rel="noopener" class="prog-list-name">Artificial Intelligence</a><span class="prog-list-qual">MSc</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/postgraduate-programmes/computing/" target="_blank" rel="noopener" class="prog-list-name">Computing</a><span class="prog-list-qual">MSc</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/postgraduate-programmes/cyber-security/" target="_blank" rel="noopener" class="prog-list-name">Cyber Security</a><span class="prog-list-qual">MSc</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/postgraduate-programmes/cyber-security-technology-conversion/" target="_blank" rel="noopener" class="prog-list-name">Cyber Security Technology (Conversion)</a><span class="prog-list-qual">MSc</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/postgraduate-programmes/data-science/" target="_blank" rel="noopener" class="prog-list-name">Data Science</a><span class="prog-list-qual">MSc</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/postgraduate-programmes/data-science-applications-conversion/" target="_blank" rel="noopener" class="prog-list-name">Data Science Applications (Conversion)</a><span class="prog-list-qual">MSc</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/postgraduate-programmes/web-development/" target="_blank" rel="noopener" class="prog-list-name">Web Development</a><span class="prog-list-qual">MSc</span></li>
+ </ul>
+ </div>
+
+ <!-- Vocational panel -->
+ <div class="prog-tab-panel" id="panel-voc" role="tabpanel" hidden>
+ <ul class="prog-list">
+ <li class="prog-list-section-head">Foundation pathways</li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/computing-foundation-studies/" target="_blank" rel="noopener" class="prog-list-name">Computing Foundation Studies</a><span class="prog-list-qual">CertHE</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/computing-international-foundation/" target="_blank" rel="noopener" class="prog-list-name">Computing International Foundation Pathway</a><span class="prog-list-qual">CertHE</span></li>
+ <li class="prog-list-section-head">Higher Technical Qualifications (HTQ)</li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/hnc-computing/" target="_blank" rel="noopener" class="prog-list-name">HNC Computing</a><span class="prog-list-qual">Higher National Certificate</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/hnc-digital-technologies/" target="_blank" rel="noopener" class="prog-list-name">HNC Digital Technologies</a><span class="prog-list-qual">Higher National Certificate</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/hnd-computing/" target="_blank" rel="noopener" class="prog-list-name">HND Computing</a><span class="prog-list-qual">Higher National Diploma</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/undergraduate-programmes/hnd-digital-technologies/" target="_blank" rel="noopener" class="prog-list-name">HND Digital Technologies</a><span class="prog-list-qual">Higher National Diploma</span></li>
+ </ul>
+ </div>
+
+ <!-- Apprenticeships & CPD panel -->
+ <div class="prog-tab-panel" id="panel-cpd" role="tabpanel" hidden>
+ <ul class="prog-list">
+ <li class="prog-list-section-head">Degree apprenticeships</li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/apprenticeships/cyber-security-technical-professional/" target="_blank" rel="noopener" class="prog-list-name">Cyber Security Technical Professional</a><span class="prog-list-qual">Degree Apprenticeship</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/apprenticeships/data-science/" target="_blank" rel="noopener" class="prog-list-name">Data Science</a><span class="prog-list-qual">Degree Apprenticeship</span></li>
+ <li class="prog-list-section-head">Short courses &middot; CPD</li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/short-courses/data-visualisation/" target="_blank" rel="noopener" class="prog-list-name">Introduction to Data Visualisation</a><span class="prog-list-qual">Short Course</span></li>
+ <li class="prog-list-item"><a href="https://www.roehampton.ac.uk/short-courses/generative-ai-prompt-engineering/" target="_blank" rel="noopener" class="prog-list-name">Using Generative AI: Prompt Engineering</a><span class="prog-list-qual">Short Course</span></li>
+ </ul>
+ </div>
+
+ <div style="text-align:center;margin-top:36px;">
+ <a class="btn btn-primary" href="programmes.html">Explore all 30 programmes</a>
+ <p style="font-size:.83rem;color:var(--text-muted);margin-top:12px;">Applications via <a href="https://www.ucas.com" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">UCAS</a> (UG) or <a href="https://www.roehampton.ac.uk/apply" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">direct application</a> (PG / Short)</p>
+ </div>
+ </div>
+ </section>
+
+ <!-- ── Research Themes + Upcoming Seminars ────────────── -->
+ <section class="section" id="research" aria-labelledby="research-heading">
+ <div class="wrap">
+ <div class="two-col-grid">
+
+ <!-- Research themes -->
+ <div>
+ <span class="eyebrow">Research</span>
+ <h2 id="research-heading" style="margin:8px 0 8px;">Active research themes</h2>
+ <p style="margin-bottom:28px;">Join a research group or collaborate on a project — all levels welcome.</p>
+ <div class="theme-grid">
+ <div class="theme-card">
+ <div class="theme-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+ <h3>AI &amp; Machine Learning</h3>
+ <p>Deep learning, NLP, computer vision and responsible AI systems.</p>
+ <span class="theme-tag">4 active projects</span>
+ </div>
+ <div class="theme-card">
+ <div class="theme-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+ <h3>Cybersecurity &amp; Privacy</h3>
+ <p>Threat modelling, digital forensics, ethical hacking and data protection.</p>
+ <span class="theme-tag">3 active projects</span>
+ </div>
+ <div class="theme-card">
+ <div class="theme-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+ <h3>HCI &amp; UX Design</h3>
+ <p>Human-centred design, accessibility research and interaction design.</p>
+ <span class="theme-tag">2 active projects</span>
+ </div>
+ <div class="theme-card">
+ <div class="theme-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+ <h3>Data Science &amp; Analytics</h3>
+ <p>Big data, statistical modelling, visualisation and data-driven decisions.</p>
+ <span class="theme-tag">3 active projects</span>
+ </div>
+ <div class="theme-card">
+ <div class="theme-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+ <h3>Software Engineering</h3>
+ <p>Agile methods, DevOps, cloud-native architecture and software quality.</p>
+ <span class="theme-tag">2 active projects</span>
+ </div>
+ <div class="theme-card">
+ <div class="theme-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+ <h3>Web &amp; Digital Innovation</h3>
+ <p>Progressive web apps, decentralised systems and digital transformation.</p>
+ <span class="theme-tag">2 active projects</span>
+ </div>
+ </div>
+ <div style="margin-top:24px;">
+ <a class="btn btn-ghost-green btn-sm" href="https://www.roehampton.ac.uk/research/" target="_blank" rel="noopener">All research <svg class="ic-ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+ </div>
+ </div>
+
+ <!-- Upcoming seminars -->
+ <div>
+ <span class="eyebrow">Events</span>
+ <h2 id="seminars-heading" style="margin:8px 0 8px;">Upcoming seminars</h2>
+ <p style="margin-bottom:24px;">Open to students, staff and the wider community.</p>
+ <div class="seminar-list">
+ <article class="seminar-item">
+ <div class="seminar-date"><span class="sem-day">10</span><span class="sem-month">Jul</span></div>
+ <div class="seminar-body">
+ <span class="badge badge-green" style="margin-bottom:4px;font-size:.68rem;">AI Seminar</span>
+ <h4>Large Language Models and Code Generation</h4>
+ <p class="meta">Prof. A. Ramesh · Digby Stuart LT1 · 14:00</p>
+ </div>
+ <a class="seminar-reg" href="mailto:computing@roehampton.ac.uk?subject=Seminar%20Registration%2010%20Jul">Register</a>
+ </article>
+ <article class="seminar-item">
+ <div class="seminar-date"><span class="sem-day">14</span><span class="sem-month">Jul</span></div>
+ <div class="seminar-body">
+ <span class="badge badge-green" style="margin-bottom:4px;font-size:.68rem;">Cyber Seminar</span>
+ <h4>Quantum-safe Cryptography: Preparing for Q-Day</h4>
+ <p class="meta">Dr J. Williams · Online (Zoom) · 15:00</p>
+ </div>
+ <a class="seminar-reg" href="mailto:computing@roehampton.ac.uk?subject=Seminar%20Registration%2014%20Jul">Register</a>
+ </article>
+ <article class="seminar-item">
+ <div class="seminar-date"><span class="sem-day">18</span><span class="sem-month">Jul</span></div>
+ <div class="seminar-body">
+ <span class="badge badge-yellow" style="margin-bottom:4px;font-size:.68rem;">Industry Talk</span>
+ <h4>UX Research Methods in Production</h4>
+ <p class="meta">Industry guest, Spotify · Whitelands LT3 · 13:00</p>
+ </div>
+ <a class="seminar-reg" href="mailto:computing@roehampton.ac.uk?subject=Seminar%20Registration%2018%20Jul">Register</a>
+ </article>
+ <article class="seminar-item">
+ <div class="seminar-date"><span class="sem-day">24</span><span class="sem-month">Jul</span></div>
+ <div class="seminar-body">
+ <span class="badge badge-green" style="margin-bottom:4px;font-size:.68rem;">Research Seminar</span>
+ <h4>Ethics in Algorithmic Decision-Making</h4>
+ <p class="meta">Dr S. Okafor · Digby Stuart LT2 · 14:30</p>
+ </div>
+ <a class="seminar-reg" href="mailto:computing@roehampton.ac.uk?subject=Seminar%20Registration%2024%20Jul">Register</a>
+ </article>
+ <article class="seminar-item">
+ <div class="seminar-date"><span class="sem-day">1</span><span class="sem-month">Sep</span></div>
+ <div class="seminar-body">
+ <span class="badge badge-yellow" style="margin-bottom:4px;font-size:.68rem;">Event</span>
+ <h4>Hackathon 2026 Kickoff &amp; Industry Fair</h4>
+ <p class="meta">Computing Society · Erasmus House Atrium · All day</p>
+ </div>
+ <a class="seminar-reg" href="student-space.html">More info</a>
+ </article>
+ </div>
+ <div style="margin-top:20px;">
+ <a class="btn btn-ghost-green btn-sm" href="news.html#events">All events <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </div>
+
+ </div>
+ </div>
+ </section>
+
+ <!-- ── News ───────────────────────────────────────────── -->
+ <section class="section section-alt" aria-labelledby="news-heading">
+ <div class="wrap">
+ <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;flex-wrap:wrap;gap:16px;">
+ <div>
+ <span class="eyebrow">News</span>
+ <h2 id="news-heading" style="margin-top:8px;">Latest from the department</h2>
+ </div>
+ <a href="news.html" class="btn btn-ghost-green btn-sm">All news <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ <div class="grid-3">
+ <article class="news-card">
+ <div class="news-card-img">
+ <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=60" alt="Lines of programming code on a computer screen" loading="lazy">
+ <span class="badge badge-green">Software</span>
+ </div>
+ <div class="news-card-body">
+ <div class="news-card-date">30 Jun 2026</div>
+ <h3>GitHub Copilot now free for all Computing students</h3>
+ <p>All students enrolled in Computing programmes now have access to GitHub Copilot at no cost.</p>
+ <a class="card-link" href="news.html">Read more <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </article>
+ <article class="news-card">
+ <div class="news-card-img">
+ <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=60" alt="White robot representing artificial intelligence research" loading="lazy">
+ <span class="badge" style="background:rgba(255,255,255,.85);color:var(--green-dark);">Research</span>
+ </div>
+ <div class="news-card-body">
+ <div class="news-card-date">18 Jun 2026</div>
+ <h3>Roehampton joins national AI ethics research consortium</h3>
+ <p>The Computing Department is part of a new UK-wide initiative examining responsible AI deployment in higher education.</p>
+ <a class="card-link" href="news.html">Read more <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </article>
+ <article class="news-card">
+ <div class="news-card-img">
+ <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60" alt="Cyber security specialist working at a computer with code on screen" loading="lazy">
+ <span class="badge badge-yellow">Events</span>
+ </div>
+ <div class="news-card-body">
+ <div class="news-card-date">5 Jun 2026</div>
+ <h3>Computing students win national cybersecurity hackathon</h3>
+ <p>A team of four final-year students took first place at HackSecure 2026, competing against 40 universities.</p>
+ <a class="card-link" href="news.html">Read more <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </article>
+ </div>
+ </div>
+ </section>
+
+ <!-- ── Student Spotlight ──────────────────────────────── -->
+ <section class="section" aria-labelledby="spotlight-heading">
+ <div class="wrap">
+ <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:36px;flex-wrap:wrap;gap:16px;">
+ <div>
+ <span class="eyebrow">Student Spotlight</span>
+ <h2 id="spotlight-heading" style="margin-top:8px;">Outstanding Computing graduates</h2>
+ </div>
+ <a href="alumni.html" class="btn btn-ghost-green btn-sm">All alumni <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ <div class="spotlight-grid">
+ <!-- Featured -->
+ <div class="spotlight-card featured">
+ <div class="spotlight-avatar-sm"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=60" alt="Portrait of Maria Chen" loading="lazy"></div>
+ <div class="spotlight-body">
+ <div class="sp-year">Class of 2026 · Featured</div>
+ <h3>Maria Chen</h3>
+ <p class="sp-prog">BSc Computer Science · First Class Honours</p>
+ <blockquote>"The projects I built at Roehampton are what landed me my role at Monzo. The department's support was genuinely incredible — I went from a complete beginner to shipping production code within 3 years."</blockquote>
+ <p style="margin-top:14px;font-size:.82rem;color:var(--green-dark);font-weight:600;">Now: Software Engineer, Monzo Bank</p>
+ </div>
+ </div>
+ <!-- Mini 1 -->
+ <div class="spotlight-mini">
+ <div class="spotlight-avatar-sm"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=60" alt="Portrait of Tobias Osei" loading="lazy"></div>
+ <h4>Tobias Osei</h4>
+ <p class="sp-prog">MSc Cyber Security · Distinction</p>
+ <p class="sp-outcome">Security Analyst, GCHQ</p>
+ <p style="font-size:.8rem;color:var(--text-muted);margin-top:8px;">Class of 2025</p>
+ </div>
+ <!-- Mini 2 -->
+ <div class="spotlight-mini">
+ <div class="spotlight-avatar-sm"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=60" alt="Portrait of Priya Nair" loading="lazy"></div>
+ <h4>Priya Nair</h4>
+ <p class="sp-prog">MSc Data Science · Merit</p>
+ <p class="sp-outcome">Data Scientist, NHS Digital</p>
+ <p style="font-size:.8rem;color:var(--text-muted);margin-top:8px;">Class of 2025</p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ── Community & Belonging ──────────────────────────── -->
+ <div class="community-strip" aria-labelledby="community-heading">
+ <div class="wrap">
+ <div class="section-head" style="margin-bottom:0;">
+ <span class="eyebrow">Community &amp; Belonging</span>
+ <h2 id="community-heading">Find your place in Computing</h2>
+ <p>From peer mentoring to industry networks — we're building a community where everyone belongs.</p>
+ </div>
+ <div class="community-cards">
+ <a class="community-card" href="student-space.html">
+ <div class="c-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+ <h4>Computing Society</h4>
+ <p>Hackathons, workshops and socials</p>
+ </a>
+ <a class="community-card" href="student-space.html">
+ <div class="c-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
+ <h4>Women in Computing</h4>
+ <p>Mentorship and career support</p>
+ </a>
+ <a class="community-card" href="student-space.html">
+ <div class="c-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
+ <h4>Peer Tutoring</h4>
+ <p>Get help or become a peer mentor</p>
+ </a>
+ <a class="community-card" href="alumni.html">
+ <div class="c-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
+ <h4>Alumni Network</h4>
+ <p>Jobs, mentoring and networking events</p>
+ </a>
+ </div>
+ </div>
+ </div>
+
+ <!-- ── Resource strip ─────────────────────────────────── -->
+ <div class="resource-strip" aria-labelledby="resources-heading">
+ <div class="wrap">
+ <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:32px;flex-wrap:wrap;gap:16px;">
+ <div>
+ <span class="eyebrow">Resource Centre</span>
+ <h2 id="resources-heading" style="margin-top:8px;">Guides, tools &amp; publications</h2>
+ </div>
+ <a href="support.html#resources" class="btn btn-ghost-green btn-sm">View all <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ <div class="grid-4">
+ <a class="resource-card" href="#">
+ <div class="resource-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+ <h4>Student IT Guide</h4>
+ <p>Everything you need to get set up from day one.</p>
+ <div class="arrow">Download PDF <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+ </a>
+ <a class="resource-card" href="#">
+ <div class="resource-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+ <h4>Cybersecurity Handbook</h4>
+ <p>Protect yourself online: passwords, phishing and safe browsing.</p>
+ <div class="arrow">Read online <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+ </a>
+ <a class="resource-card" href="#">
+ <div class="resource-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+ <h4>Cloud &amp; Storage Guide</h4>
+ <p>OneDrive, SharePoint and how to back up your work safely.</p>
+ <div class="arrow">Read online <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+ </a>
+ <a class="resource-card" href="#">
+ <div class="resource-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+ <h4>Software Catalogue 2026</h4>
+ <p>Full list of free software licences available to students and staff.</p>
+ <div class="arrow">Browse catalogue <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+ </a>
+ </div>
+ </div>
+ </div>
+
+ <!-- ── Partner with Us CTA ────────────────────────────── -->
+ <div class="partner-cta-section" aria-labelledby="partner-heading">
+ <div class="wrap">
+ <span class="eyebrow">Industry Partners</span>
+ <h2 id="partner-heading" style="margin:12px auto 16px;max-width:22ch;">Shape the next generation of tech talent.</h2>
+ <p>Partner with the Roehampton Computing Department to co-design curricula, host placements, sponsor projects and recruit graduates. Together we build a stronger industry.</p>
+ <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+ <a class="btn btn-primary" href="industry.html">Explore partnerships</a>
+ <a class="btn btn-ghost-green" href="alumni.html">Alumni &amp; jobs board</a>
+ </div>
+ </div>
+ </div>
+
+ <!-- ── Support CTA ────────────────────────────────────── -->
+ <section class="section" style="text-align:center;" aria-labelledby="support-cta-heading">
+ <div class="wrap">
+ <span class="eyebrow">Support</span>
+ <h2 id="support-cta-heading" style="margin:12px auto 16px;max-width:18ch;">Need help? We're here for you.</h2>
+ <p style="max-width:52ch;margin:0 auto 32px;font-size:1.05rem;">The Computing Department IT team is available Monday to Friday. For urgent issues, the University ServiceDesk is available 24/7.</p>
+ <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+ <a class="btn btn-green" href="support.html">Get support</a>
+ <a class="btn btn-ghost-green" href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener">University ServiceDesk <svg class="ic-ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+ </div>
+ <p class="status-text" style="margin-top:24px;"><span class="status-dot"></span>All systems operational · Last updated 5 Jul 2026</p>
+ </div>
+ </section>
+
+ </main>
+
+ <!-- Footer -->
+ <footer role="contentinfo">
+ <div class="wrap">
+
+ <!-- Academic area band -->
+ <div class="footer-cebe">
+ <div>
+ <span class="cebe-kicker">Our academic area</span>
+ <h3>School of Computing, Engineering and the Built Environment (CEBE)</h3>
+ <p>A connected, inclusive community where innovation meets opportunity — professionally focused education designed with industry, in purpose-built spaces like the Sir David Bell Building.</p>
+ </div>
+ <a class="btn-cebe" href="cebe.html">Discover our School <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+
+ <!-- Main columns -->
+ <div class="footer-top">
+ <div class="footer-call">
+ <div class="footer-logo"><img class="footer-logo-img" src="assets/roehampton-logo-white.svg" alt="University of Roehampton" width="120" height="53"></div>
+ <h3>Call us at +44 (0)20 8392 3000</h3>
+ <p class="call-note">Mon–Fri · 9am–5pm. <a href="support.html#enquiries">See contact by enquiry type.</a></p>
+ <p style="margin-top:14px;font-size:.82rem;">Digby Stuart College · Roehampton Lane<br>London SW15 5PH</p>
+ </div>
+ <div>
+ <h4>Already a student?</h4>
+ <ul class="icon-links">
+ <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><a href="https://moodle.roehampton.ac.uk" target="_blank" rel="noopener">Moodle VLE</a></li>
+ <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><a href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">NEST student portal</a></li>
+ <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><a href="services.html#students">Software downloads</a></li>
+ <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><a href="services.html#students">Lab booking</a></li>
+ <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/></svg><a href="student-space.html">Thesis &amp; project guidance</a></li>
+ <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="support.html">IT support</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>Explore</h4>
+ <ul>
+ <li><a href="index.html">Home</a></li>
+ <li><a href="services.html">Services</a></li>
+ <li><a href="programmes.html">Programmes</a></li>
+ <li><a href="news.html">News</a></li>
+ <li><a href="about.html">About</a></li>
+ <li><a href="support.html">Support</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>Community</h4>
+ <ul>
+ <li><a href="student-space.html">Student Space</a></li>
+ <li><a href="industry.html">Industry Partnerships</a></li>
+ <li><a href="alumni.html">Alumni Network</a></li>
+ <li><a href="alumni.html#jobs">Jobs Board</a></li>
+ <li><a href="news.html#events">Events &amp; Seminars</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>Contact Us</h4>
+ <ul>
+ <li><a href="support.html#enquiries">By enquiry type</a></li>
+ <li><a href="programmes.html#admissions">Admissions</a></li>
+ <li><a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener">ServiceDesk</a></li>
+ <li><a href="about.html#directions">How to get here</a></li>
+ <li><a href="https://roehamptonstudent.com" target="_blank" rel="noopener">Students' Union</a></li>
+ </ul>
+ </div>
+ </div>
+
+ <!-- Social + seal -->
+ <div class="footer-social-row">
+ <div class="footer-social">
+ <h4>Follow us on</h4>
+ <a class="social-btn" href="https://www.facebook.com/roehamptonuni/" target="_blank" rel="noopener" aria-label="University of Roehampton on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+ <a class="social-btn" href="https://x.com/RoehamptonUni" target="_blank" rel="noopener" aria-label="University of Roehampton on X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg></a>
+ <a class="social-btn" href="https://www.instagram.com/uni_roehampton" target="_blank" rel="noopener" aria-label="University of Roehampton on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a class="social-btn" href="https://www.linkedin.com/school/university-of-roehampton/" target="_blank" rel="noopener" aria-label="University of Roehampton on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+ <a class="social-btn" href="https://www.youtube.com/@RoehamptonAcUk" target="_blank" rel="noopener" aria-label="University of Roehampton on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.92 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon class="fill" points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+ </div>
+ <div class="footer-seal">
+ <a class="bcs-lockup" href="https://www.bcs.org" target="_blank" rel="noopener">
+ <img src="assets/bcs-educational-affiliate.png" alt="BCS, The Chartered Institute for IT — Educational Affiliate" width="190" height="91" loading="lazy">
+ </a>
+ </div>
+ </div>
+
+ <!-- Legal -->
+ <div class="footer-bottom">
+ <span>© 2026 University of Roehampton · Computing Department. All rights reserved.</span>
+ <div class="footer-bottom-links">
+ <a href="accessibility.html">Accessibility</a>
+ <a href="privacy.html">Privacy Notice</a>
+ <a href="privacy.html#cookies">Cookie Policy</a>
+ <a href="sitemap.html">Site Map</a>
+ </div>
+ </div>
+
+ </div>
+ </footer>
+
+ <!-- Fast Feedback widget -->
+ <button class="fast-feedback-btn" id="fastFeedback" aria-label="Open feedback form" aria-expanded="false">
+ Feedback
+ </button>
+ <div class="fast-feedback-panel" id="fastFeedbackPanel" hidden role="dialog" aria-label="Quick feedback">
+ <button class="ff-close-btn" id="ffClose" aria-label="Close feedback">×</button>
+ <h3>Quick Feedback</h3>
+ <p>How helpful was this page?</p>
+ <div class="ff-stars" role="group" aria-label="Star rating">
+ <button class="ff-star" aria-label="1 star" aria-pressed="false">☆</button>
+ <button class="ff-star" aria-label="2 stars" aria-pressed="false">☆</button>
+ <button class="ff-star" aria-label="3 stars" aria-pressed="false">☆</button>
+ <button class="ff-star" aria-label="4 stars" aria-pressed="false">☆</button>
+ <button class="ff-star" aria-label="5 stars" aria-pressed="false">☆</button>
+ </div>
+ <textarea class="ff-comment" placeholder="Any comments? (optional)" aria-label="Comments"></textarea>
+ <a class="btn btn-green btn-sm" href="mailto:computing@roehampton.ac.uk?subject=Computing%20Hub%20Feedback" style="display:block;text-align:center;">Send feedback</a>
+ </div>
+
+ <script src="assets/js/main.js"></script>
+</body>
+</html>
