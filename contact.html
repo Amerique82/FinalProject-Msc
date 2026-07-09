@@ -3,9 +3,113 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta name="description" content="Accessibility statement for the Computing Department Hub, University of Roehampton — WCAG 2.1 AA conformance, features and how to report issues.">
- <title>Accessibility Statement — Computing Hub, University of Roehampton</title>
+ <meta name="description" content="Contact the Computing Department at the University of Roehampton — send us a message and the team will get back to you within one working day.">
+ <title>Contact Us — Computing Hub · University of Roehampton</title>
  <link rel="stylesheet" href="assets/css/styles.css">
+ <style>
+ .support-hero-cards {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 20px;
+ }
+ @media(max-width:900px){ .support-hero-cards { grid-template-columns: repeat(2,1fr); } }
+ @media(max-width:520px){ .support-hero-cards { grid-template-columns: 1fr; } }
+
+ .contact-option {
+ background: var(--bg-card);
+ border: 1px solid var(--border);
+ border-radius: var(--radius-lg);
+ padding: 24px;
+ text-align: center;
+ box-shadow: var(--shadow-lg);
+ transition: transform .2s, box-shadow .2s;
+ }
+ .contact-option:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,.12); }
+ .contact-option-icon { font-size: 2.2rem; margin-bottom: 12px; }
+ .contact-option h3 { font-size: 1rem; margin-bottom: 6px; }
+ .contact-option p { font-size: .85rem; margin-bottom: 14px; }
+ .contact-option .hours { font-size: .78rem; color: var(--green); font-weight: 600; margin-top: 6px; }
+ .contact-option .btn { width: 100%; justify-content: center; }
+
+ .faq-section { margin-bottom: 48px; }
+ .faq-section h3 {
+ font-size: 1.05rem;
+ color: var(--green-dark);
+ margin-bottom: 16px;
+ padding-bottom: 10px;
+ border-bottom: 2px solid var(--green-light);
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ }
+
+ .status-panel {
+ background: var(--bg-card);
+ border: 1px solid var(--border);
+ border-radius: var(--radius-lg);
+ padding: 24px;
+ }
+ .status-panel h3 { margin-bottom: 16px; font-size: 1rem; }
+ .status-row {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 10px 0;
+ border-bottom: 1px solid var(--border);
+ font-size: .88rem;
+ }
+ .status-row:last-child { border-bottom: none; }
+ .status-ok { color: #22c55e; font-weight: 600; font-size: .8rem; }
+ .status-warn { color: #f59e0b; font-weight: 600; font-size: .8rem; }
+
+ .resource-list { display: flex; flex-direction: column; gap: 10px; }
+ .resource-row {
+ background: var(--bg-card);
+ border: 1px solid var(--border);
+ border-radius: var(--radius);
+ padding: 14px 18px;
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ transition: border-color .2s, transform .2s;
+ }
+ .resource-row:hover { border-color: var(--green); transform: translateX(4px); }
+ .resource-row-icon { font-size: 1.3rem; }
+ .resource-row h4 { font-size: .93rem; margin-bottom: 2px; }
+ .resource-row p { font-size: .82rem; }
+ .resource-row .arrow { margin-left: auto; color: var(--green); font-size: .85rem; font-weight: 600; white-space: nowrap; }
+
+ .layout-sidebar {
+ display: grid;
+ grid-template-columns: 1fr 300px;
+ gap: 40px;
+ align-items: start;
+ }
+ @media(max-width:900px){ .layout-sidebar { grid-template-columns: 1fr; } }
+
+ .accessibility-box {
+ background: var(--navy);
+ border-radius: var(--radius-xl);
+ padding: 40px;
+ color: var(--white);
+ }
+ .accessibility-box h2 { color: var(--white); margin-bottom: 12px; }
+ .accessibility-box p { color: rgba(255,255,255,.8); margin-bottom: 0; }
+ .access-features {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 16px;
+ margin-top: 28px;
+ }
+ @media(max-width:640px){ .access-features { grid-template-columns: 1fr; } }
+ .access-feature {
+ background: rgba(255,255,255,.08);
+ border-radius: var(--radius);
+ padding: 16px;
+ }
+ .access-feature h4 { color: var(--white); font-size: .9rem; margin-bottom: 4px; }
+ .access-feature p { font-size: .82rem; color: rgba(255,255,255,.65); }
+ </style>
 </head>
 <body>
 
@@ -20,7 +124,7 @@
  <a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener">ServiceDesk</a>
  <a href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">NEST</a>
  <a href="accessibility.html">Accessibility</a>
- <a href="support.html">Help</a>
+ <a href="#contact">Contact</a>
  </div>
  </div>
  </div>
@@ -41,7 +145,7 @@
  <svg class="nav-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
  </button>
  <div class="dropdown" role="menu">
-  <a class="dropdown-link active" href="about.html" role="menuitem">About</a>
+  <a class="dropdown-link" href="about.html" role="menuitem">About</a>
  <a class="dropdown-link" href="cebe.html" role="menuitem">Our School (CEBE)</a>
  <div class="dropdown-group">
  <a class="dropdown-link" href="student-space.html" role="menuitem">Student Space</a>
@@ -61,7 +165,7 @@
  </div>
  <a class="nav-link" href="news.html">News</a>
  <a class="nav-link" href="support.html">Support</a>
- <a class="nav-link" href="contact.html">Contact Us</a>
+ <a class="nav-link active" href="contact.html">Contact Us</a>
  </nav>
  <div class="nav-actions">
  <button class="search-btn" id="searchBtn" aria-label="Open search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
@@ -72,7 +176,7 @@
  </div>
  <div class="search-bar" id="searchBar" role="search">
  <div class="search-input-wrap">
- <input type="search" id="searchInput" class="search-input" placeholder="Search…" aria-label="Search">
+ <input type="search" id="searchInput" class="search-input" placeholder="Search FAQs…" aria-label="Search">
  <button class="search-submit" aria-label="Submit"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
  </div>
  </div>
@@ -87,48 +191,74 @@
  <a class="nav-link" href="about.html">About</a>
  <a class="nav-link" href="cebe.html">Our School (CEBE)</a>
  <a class="nav-link" href="support.html">Support</a>
- <a class="nav-link" href="contact.html">Contact Us</a>
+ <a class="nav-link active" href="contact.html">Contact Us</a>
  <a class="btn-signin" href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">Sign in</a>
  </div>
- 
  </header>
 
  <main id="main">
 
- <div class="page-hero" aria-labelledby="page-heading">
+ <!-- Page hero -->
+ <section class="page-hero" aria-labelledby="page-title">
  <div class="wrap">
- <nav class="breadcrumb" aria-label="Breadcrumb">
- <a href="index.html">Home</a>
- <span class="breadcrumb-sep" aria-hidden="true">›</span>
- <span aria-current="page">Accessibility</span>
- </nav>
- <h1 id="page-heading">Accessibility Statement</h1>
+ <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">&rsaquo;</span> <span aria-current="page">Contact Us</span></nav>
+ <h1 id="page-title">Contact Us</h1>
+ <p>Questions, problems or ideas — send us a message and the Computing team will get back to you within one working day.</p>
+ </div>
+ </section>
+
+ <!-- Contact form -->
+ <section class="section" id="contact-form" aria-labelledby="form-heading">
+ <div class="wrap" style="max-width:680px;">
+ <div class="section-head">
+ <span class="eyebrow">Get in touch</span>
+ <h2 id="form-heading">Send us a message</h2>
+ <p>Fill in the form and a member of the Computing IT team will get back to you within one working day.</p>
+ </div>
+ <form action="#" method="post" aria-label="Contact form" novalidate>
+ <div class="grid-2">
+ <div class="form-group">
+ <label class="form-label" for="fname">First name <span aria-hidden="true">*</span></label>
+ <input class="form-control" type="text" id="fname" name="fname" autocomplete="given-name" required placeholder="Your first name">
+ </div>
+ <div class="form-group">
+ <label class="form-label" for="lname">Last name <span aria-hidden="true">*</span></label>
+ <input class="form-control" type="text" id="lname" name="lname" autocomplete="family-name" required placeholder="Your last name">
  </div>
  </div>
-
-
- <section class="section" aria-labelledby="a11y-heading">
- <div class="wrap" style="max-width:900px;">
- <h2 id="a11y-heading">Our commitment to accessibility</h2>
- <p style="margin:12px 0 8px;">The Computing Hub is designed to be usable by everyone. This website aims to conform to the <strong>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong> — the standard required by the Public Sector Bodies (Websites and Mobile Applications) Accessibility Regulations 2018.</p>
- <p style="margin-bottom:32px;">This statement was last reviewed in July 2026 and applies to all pages of the Computing Department Hub.</p>
-
- <h3 style="margin:0 0 16px;">What we provide</h3>
- <div class="grid-3">
- <div class="card"><h4 style="margin-bottom:6px;">Keyboard navigation</h4><p style="font-size:.9rem;">All features are fully operable by keyboard, including the homepage carousel, menus and forms.</p></div>
- <div class="card"><h4 style="margin-bottom:6px;">Screen reader support</h4><p style="font-size:.9rem;">Semantic HTML, ARIA labels, landmarks and descriptive alt text throughout.</p></div>
- <div class="card"><h4 style="margin-bottom:6px;">Dark mode</h4><p style="font-size:.9rem;">System preference respected automatically; a toggle is always available in the header.</p></div>
- <div class="card"><h4 style="margin-bottom:6px;">Colour contrast</h4><p style="font-size:.9rem;">Text meets or exceeds the WCAG 4.5:1 contrast ratio in both light and dark modes.</p></div>
- <div class="card"><h4 style="margin-bottom:6px;">Responsive design</h4><p style="font-size:.9rem;">Fully functional on all screen sizes, from 320px mobile to large desktop.</p></div>
- <div class="card"><h4 style="margin-bottom:6px;">Reduced motion</h4><p style="font-size:.9rem;">Animations, including the carousel, respect your reduced-motion system setting.</p></div>
+ <div class="form-group">
+ <label class="form-label" for="email">Roehampton email <span aria-hidden="true">*</span></label>
+ <input class="form-control" type="email" id="email" name="email" autocomplete="email" required placeholder="yourname@roehampton.ac.uk">
  </div>
-
- <h3 style="margin:40px 0 8px;">Known limitations</h3>
- <p>Some older PDF guides may not be fully accessible; we are progressively replacing them with accessible HTML versions. Third-party platforms linked from this site (Moodle, NEST, ServiceDesk) publish their own accessibility statements.</p>
-
- <h3 style="margin:32px 0 8px;">Feedback and reporting problems</h3>
- <p>If you find a page you cannot use, or need content in a different format, email <a href="mailto:computing@roehampton.ac.uk?subject=Accessibility%20feedback" style="color:var(--green);font-weight:600;">computing@roehampton.ac.uk</a> with the subject line "Accessibility feedback". We aim to respond within five working days.</p>
- <p style="margin-top:12px;">If you are not happy with our response, you can contact the <a href="https://www.equalityadvisoryservice.com/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">Equality Advisory and Support Service (EASS)</a>, which enforces the accessibility regulations.</p>
+ <div class="form-group">
+ <label class="form-label" for="role">I am a…</label>
+ <select class="form-control" id="role" name="role">
+ <option value="">Select your role</option>
+ <option value="student">Student</option>
+ <option value="staff">Academic staff</option>
+ <option value="admin">Administrative staff</option>
+ <option value="researcher">Researcher / PG student</option>
+ </select>
+ </div>
+ <div class="form-group">
+ <label class="form-label" for="category">Category</label>
+ <select class="form-control" id="category" name="category">
+ <option value="">Select a category</option>
+ <option value="account">Account & password</option>
+ <option value="wifi">Wi-Fi & network</option>
+ <option value="software">Software & apps</option>
+ <option value="moodle">Moodle & learning tech</option>
+ <option value="hardware">Hardware & printing</option>
+ <option value="other">Other</option>
+ </select>
+ </div>
+ <div class="form-group">
+ <label class="form-label" for="message">Message <span aria-hidden="true">*</span></label>
+ <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Describe your issue or question in as much detail as possible…"></textarea>
+ </div>
+ <button type="submit" class="btn btn-green" style="width:100%;justify-content:center;">Send message <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+ <p style="font-size:.82rem;text-align:center;margin-top:12px;">For urgent issues, please call <a href="tel:+442083923000" style="color:var(--green);font-weight:600;">+44 (0)20 8392 3000</a> or raise a <a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">ServiceDesk ticket</a>.</p>
+ </form>
  </div>
  </section>
 

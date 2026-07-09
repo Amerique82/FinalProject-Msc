@@ -13,7 +13,7 @@
 
  <div class="topbar">
  <div class="wrap">
- <span>University of Roehampton · School of Computing, Engineering and the Built Environment (CEBE)</span>
+ <span>University of Roehampton · CEBE · Computing Department</span>
  <div class="topbar-links">
  <a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener">ServiceDesk</a>
  <a href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">NEST</a>
@@ -39,17 +39,27 @@
  <svg class="nav-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
  </button>
  <div class="dropdown" role="menu">
- <a class="dropdown-link" href="cebe.html#history" role="menuitem">History of our School</a>
+  <a class="dropdown-link" href="about.html" role="menuitem">About</a>
+ <a class="dropdown-link" href="cebe.html" role="menuitem">Our School (CEBE)</a>
+ <div class="dropdown-group">
  <a class="dropdown-link" href="student-space.html" role="menuitem">Student Space</a>
- <a class="dropdown-link" href="industry.html" role="menuitem">Industry</a>
+ <button class="dropdown-expand" aria-expanded="false" aria-label="Show Student Space sections"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="14" height="14"><polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+ <div class="dropdown-sub" hidden>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#study-resources" role="menuitem">Study Resources</a>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#thesis" role="menuitem">Project Guidance</a>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#library" role="menuitem">Library Services</a>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#tutoring" role="menuitem">Tutoring</a>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#dashboard" role="menuitem">Personal Dashboard</a>
+ </div>
+ </div>
  <a class="dropdown-link" href="alumni.html" role="menuitem">Alumni</a>
  <hr class="dropdown-divider" aria-hidden="true">
- <a class="dropdown-link" href="cebe.html" role="menuitem">Our School (CEBE)</a>
- <a class="dropdown-link" href="about.html" role="menuitem">About</a>
+ <a class="dropdown-link" href="industry.html" role="menuitem">Partners</a>
  </div>
  </div>
  <a class="nav-link" href="news.html">News</a>
  <a class="nav-link" href="support.html">Support</a>
+ <a class="nav-link" href="contact.html">Contact Us</a>
  </nav>
 
  <div class="nav-actions">
@@ -84,6 +94,7 @@
  <a class="nav-link" href="about.html">About</a>
  <a class="nav-link" href="cebe.html">Our School (CEBE)</a>
  <a class="nav-link" href="support.html">Support</a>
+ <a class="nav-link" href="contact.html">Contact Us</a>
  <a class="btn-signin" href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">Sign in</a>
  </div>
  </header>
@@ -115,9 +126,78 @@
  </div>
  </div>
 
+ <!-- Section chips -->
+ <div class="wrap section-chips-row">
+ <nav class="section-chips" aria-label="On this page">
+ <a href="#why-roehampton">Why study with us</a>
+ <a href="#admissions">Admissions</a>
+ <a href="#catalogue">Programme Catalogue</a>
+ </nav>
+ </div>
+
  <!-- Catalogue -->
  <section class="section" aria-labelledby="catalogue-heading">
  <div class="wrap">
+ <!-- Why study with us -->
+ <div id="why-roehampton">
+ <div class="section-head">
+ <span class="eyebrow">Why study with us</span>
+ <h2>A Computing degree that leads somewhere</h2>
+ <p>Small cohorts, industry-connected teaching and a green London campus — here is what sets Roehampton Computing apart.</p>
+ </div>
+ <div class="grid-3">
+ <div class="card">
+ <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+ <h3>Small classes, real attention</h3>
+ <p>With ~320 Computing students, our staff know you by name. Personal tutoring and peer mentoring are built into every programme.</p>
+ </div>
+ <div class="card">
+ <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+ <h3>Careers from day one</h3>
+ <p>Industry-sponsored projects, placements and a graduate jobs board. Our alumni work at Monzo, GCHQ, NHS Digital and beyond.</p>
+ </div>
+ <div class="card">
+ <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/><line x1="20" y1="9" x2="22" y2="9"/><line x1="20" y1="15" x2="22" y2="15"/><line x1="2" y1="9" x2="4" y2="9"/><line x1="2" y1="15" x2="4" y2="15"/></svg></div>
+ <h3>Curriculum that keeps pace</h3>
+ <p>AI, cyber security, data science and UX taught with current tools — including free GitHub Copilot and 40+ software licences.</p>
+ </div>
+ </div>
+ </div>
+
+ <!-- Admissions -->
+ <div id="admissions" style="margin-top:64px;">
+ <div class="section-head">
+ <span class="eyebrow">Admissions</span>
+ <h2>Entry requirements &amp; how to apply</h2>
+ <p>Everything you need to know before you apply — and the prospectus to take away.</p>
+ </div>
+ <div class="grid-2" style="align-items:start;">
+ <div class="card">
+ <h3 style="margin-bottom:14px;">Typical entry requirements</h3>
+ <ul style="list-style:disc;padding-left:20px;color:var(--text-muted);font-size:.93rem;line-height:1.8;">
+ <li><strong>Undergraduate (BSc/BA):</strong> 96–120 UCAS points (e.g. CCC–BBB at A-level or equivalent). GCSE Maths and English at grade 4/C.</li>
+ <li><strong>Foundation &amp; HTQ:</strong> 32–64 UCAS points; relevant experience considered.</li>
+ <li><strong>Postgraduate (MSc):</strong> a 2:2 honours degree or above. Conversion routes accept any discipline.</li>
+ <li><strong>International:</strong> IELTS 6.0 overall (5.5 in each band) or equivalent.</li>
+ </ul>
+ <p style="font-size:.85rem;margin-top:12px;">Requirements vary by programme — always check the programme page before applying.</p>
+ </div>
+ <div class="card">
+ <h3 style="margin-bottom:14px;">How to apply — step by step</h3>
+ <ol style="padding-left:20px;color:var(--text-muted);font-size:.93rem;line-height:1.8;">
+ <li>Choose your programme from the catalogue above.</li>
+ <li>Check entry requirements and key dates on the programme page.</li>
+ <li><strong>Undergraduate:</strong> apply through <a href="https://www.ucas.com" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">UCAS</a> (deadline: end of January for autumn entry).</li>
+ <li><strong>Postgraduate / short courses / apprenticeships:</strong> apply <a href="https://www.roehampton.ac.uk/apply/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">directly online</a>.</li>
+ <li>Receive your offer — most decisions arrive within 2–4 weeks.</li>
+ </ol>
+ <a class="btn btn-ghost-green btn-sm" href="https://www.roehampton.ac.uk/request-a-prospectus/" target="_blank" rel="noopener" style="margin-top:16px;"><svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download the prospectus (PDF)</a>
+ </div>
+ </div>
+ </div>
+
+ <!-- Programme Catalogue -->
+ <div id="catalogue" style="margin-top:64px;">
  <div class="section-head">
  <span class="eyebrow">Programme Catalogue</span>
  <h2 id="catalogue-heading">All 30 Computing programmes</h2>
@@ -399,63 +479,7 @@
 
  <p id="progNoResults" class="prog-no-results" hidden aria-live="polite">No programmes match your search. Try a different keyword or clear the filter.</p>
 
- <!-- Why study with us -->
- <div id="why-roehampton" style="margin-top:64px;">
- <div class="section-head">
- <span class="eyebrow">Why study with us</span>
- <h2>A Computing degree that leads somewhere</h2>
- <p>Small cohorts, industry-connected teaching and a green London campus — here is what sets Roehampton Computing apart.</p>
- </div>
- <div class="grid-3">
- <div class="card">
- <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
- <h3>Small classes, real attention</h3>
- <p>With ~320 Computing students, our staff know you by name. Personal tutoring and peer mentoring are built into every programme.</p>
- </div>
- <div class="card">
- <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
- <h3>Careers from day one</h3>
- <p>Industry-sponsored projects, placements and a graduate jobs board. Our alumni work at Monzo, GCHQ, NHS Digital and beyond.</p>
- </div>
- <div class="card">
- <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/><line x1="20" y1="9" x2="22" y2="9"/><line x1="20" y1="15" x2="22" y2="15"/><line x1="2" y1="9" x2="4" y2="9"/><line x1="2" y1="15" x2="4" y2="15"/></svg></div>
- <h3>Curriculum that keeps pace</h3>
- <p>AI, cyber security, data science and UX taught with current tools — including free GitHub Copilot and 40+ software licences.</p>
- </div>
- </div>
- </div>
-
- <!-- Admissions -->
- <div id="admissions" style="margin-top:64px;">
- <div class="section-head">
- <span class="eyebrow">Admissions</span>
- <h2>Entry requirements &amp; how to apply</h2>
- <p>Everything you need to know before you apply — and the prospectus to take away.</p>
- </div>
- <div class="grid-2" style="align-items:start;">
- <div class="card">
- <h3 style="margin-bottom:14px;">Typical entry requirements</h3>
- <ul style="list-style:disc;padding-left:20px;color:var(--text-muted);font-size:.93rem;line-height:1.8;">
- <li><strong>Undergraduate (BSc/BA):</strong> 96–120 UCAS points (e.g. CCC–BBB at A-level or equivalent). GCSE Maths and English at grade 4/C.</li>
- <li><strong>Foundation &amp; HTQ:</strong> 32–64 UCAS points; relevant experience considered.</li>
- <li><strong>Postgraduate (MSc):</strong> a 2:2 honours degree or above. Conversion routes accept any discipline.</li>
- <li><strong>International:</strong> IELTS 6.0 overall (5.5 in each band) or equivalent.</li>
- </ul>
- <p style="font-size:.85rem;margin-top:12px;">Requirements vary by programme — always check the programme page before applying.</p>
- </div>
- <div class="card">
- <h3 style="margin-bottom:14px;">How to apply — step by step</h3>
- <ol style="padding-left:20px;color:var(--text-muted);font-size:.93rem;line-height:1.8;">
- <li>Choose your programme from the catalogue above.</li>
- <li>Check entry requirements and key dates on the programme page.</li>
- <li><strong>Undergraduate:</strong> apply through <a href="https://www.ucas.com" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">UCAS</a> (deadline: end of January for autumn entry).</li>
- <li><strong>Postgraduate / short courses / apprenticeships:</strong> apply <a href="https://www.roehampton.ac.uk/apply/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">directly online</a>.</li>
- <li>Receive your offer — most decisions arrive within 2–4 weeks.</li>
- </ol>
- <a class="btn btn-ghost-green btn-sm" href="https://www.roehampton.ac.uk/request-a-prospectus/" target="_blank" rel="noopener" style="margin-top:16px;"><svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download the prospectus (PDF)</a>
- </div>
- </div>
- </div>
+ </div><!-- end catalogue -->
 
  <!-- Apply CTA -->
  <div style="background:var(--green-light);border-radius:var(--radius-xl);padding:40px;text-align:center;margin-top:56px;">
@@ -480,7 +504,7 @@
  <!-- Academic area band -->
  <div class="footer-cebe">
  <div>
- <span class="cebe-kicker">Our academic area</span>
+ <span class="cebe-kicker">The Computing Department is part of</span>
  <h3>School of Computing, Engineering and the Built Environment (CEBE)</h3>
  <p>A connected, inclusive community where innovation meets opportunity — professionally focused education designed with industry, in purpose-built spaces like the Sir David Bell Building.</p>
  </div>
@@ -530,6 +554,7 @@
  <div>
  <h4>Contact Us</h4>
  <ul>
+ <li><a href="services.html#faq">FAQs</a></li>
  <li><a href="support.html#enquiries">By enquiry type</a></li>
  <li><a href="programmes.html#admissions">Admissions</a></li>
  <li><a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener">ServiceDesk</a></li>
@@ -587,5 +612,11 @@
  </div>
 
  <script src="assets/js/main.js"></script>
+ <!-- Accessibility banner (dismissible) -->
+ <div class="a11y-banner" id="a11yBanner" role="region" aria-label="Accessibility statement" hidden>
+ <p><strong>This site is built for everyone.</strong> The Computing Hub conforms to WCAG 2.1 Level AA. <a href="accessibility.html">Read the accessibility statement</a></p>
+ <button class="a11y-banner-close" id="a11yBannerClose" aria-label="Dismiss accessibility notice">&#215;</button>
+ </div>
+
 </body>
 </html>

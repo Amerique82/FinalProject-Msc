@@ -15,7 +15,7 @@
  <!-- Top bar -->
  <div class="topbar">
  <div class="wrap">
- <span>University of Roehampton · School of Computing, Engineering and the Built Environment (CEBE)</span>
+ <span>University of Roehampton · CEBE · Computing Department</span>
  <div class="topbar-links">
  <a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener">ServiceDesk</a>
  <a href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">NEST</a>
@@ -41,17 +41,27 @@
  <svg class="nav-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
  </button>
  <div class="dropdown" role="menu">
- <a class="dropdown-link" href="cebe.html#history" role="menuitem">History of our School</a>
+  <a class="dropdown-link active" href="about.html" role="menuitem">About</a>
+ <a class="dropdown-link" href="cebe.html" role="menuitem">Our School (CEBE)</a>
+ <div class="dropdown-group">
  <a class="dropdown-link" href="student-space.html" role="menuitem">Student Space</a>
- <a class="dropdown-link" href="industry.html" role="menuitem">Industry</a>
+ <button class="dropdown-expand" aria-expanded="false" aria-label="Show Student Space sections"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="14" height="14"><polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+ <div class="dropdown-sub" hidden>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#study-resources" role="menuitem">Study Resources</a>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#thesis" role="menuitem">Project Guidance</a>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#library" role="menuitem">Library Services</a>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#tutoring" role="menuitem">Tutoring</a>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#dashboard" role="menuitem">Personal Dashboard</a>
+ </div>
+ </div>
  <a class="dropdown-link" href="alumni.html" role="menuitem">Alumni</a>
  <hr class="dropdown-divider" aria-hidden="true">
- <a class="dropdown-link" href="cebe.html" role="menuitem">Our School (CEBE)</a>
- <a class="dropdown-link active" href="about.html" role="menuitem">About</a>
+ <a class="dropdown-link" href="industry.html" role="menuitem">Partners</a>
  </div>
  </div>
  <a class="nav-link" href="news.html">News</a>
  <a class="nav-link" href="support.html">Support</a>
+ <a class="nav-link" href="contact.html">Contact Us</a>
  </nav>
  <div class="nav-actions">
  <button class="search-btn" id="searchBtn" aria-label="Open search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
@@ -77,6 +87,7 @@
  <a class="nav-link" href="about.html">About</a>
  <a class="nav-link" href="cebe.html">Our School (CEBE)</a>
  <a class="nav-link" href="support.html">Support</a>
+ <a class="nav-link" href="contact.html">Contact Us</a>
  <a class="btn-signin" href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">Sign in</a>
  </div>
  </header>
@@ -128,7 +139,7 @@
  <!-- Academic area band -->
  <div class="footer-cebe">
  <div>
- <span class="cebe-kicker">Our academic area</span>
+ <span class="cebe-kicker">The Computing Department is part of</span>
  <h3>School of Computing, Engineering and the Built Environment (CEBE)</h3>
  <p>A connected, inclusive community where innovation meets opportunity — professionally focused education designed with industry, in purpose-built spaces like the Sir David Bell Building.</p>
  </div>
@@ -178,6 +189,7 @@
  <div>
  <h4>Contact Us</h4>
  <ul>
+ <li><a href="services.html#faq">FAQs</a></li>
  <li><a href="support.html#enquiries">By enquiry type</a></li>
  <li><a href="programmes.html#admissions">Admissions</a></li>
  <li><a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener">ServiceDesk</a></li>
@@ -219,5 +231,11 @@
  </footer>
 
  <script src="assets/js/main.js"></script>
+ <!-- Accessibility banner (dismissible) -->
+ <div class="a11y-banner" id="a11yBanner" role="region" aria-label="Accessibility statement" hidden>
+ <p><strong>This site is built for everyone.</strong> The Computing Hub conforms to WCAG 2.1 Level AA. <a href="accessibility.html">Read the accessibility statement</a></p>
+ <button class="a11y-banner-close" id="a11yBannerClose" aria-label="Dismiss accessibility notice">&#215;</button>
+ </div>
+
 </body>
 </html>

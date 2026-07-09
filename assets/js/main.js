@@ -463,3 +463,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
+
+
+/* ── Accessibility banner (dismissible, remembered) ── */
+(function () {
+  var banner = document.getElementById('a11yBanner');
+  if (!banner) return;
+  try {
+    if (!localStorage.getItem('a11yBannerDismissed')) banner.hidden = false;
+  } catch (e) { banner.hidden = false; }
+  var close = document.getElementById('a11yBannerClose');
+  if (close) close.addEventListener('click', function () {
+    banner.hidden = true;
+    try { localStorage.setItem('a11yBannerDismissed', '1'); } catch (e) {}
+  });
+})();
+
+
+/* ── Dropdown accordion (Student Space sub-sections) ── */
+document.querySelectorAll('.dropdown-expand').forEach(function (btn) {
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var sub = btn.closest('.dropdown-group').querySelector('.dropdown-sub');
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    if (sub && sub.classList.contains('dropdown-sub')) sub.hidden = open;
+  });
+});

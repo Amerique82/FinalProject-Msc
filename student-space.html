@@ -110,7 +110,7 @@
 
  <div class="topbar">
  <div class="wrap">
- <span>University of Roehampton · School of Computing, Engineering and the Built Environment (CEBE)</span>
+ <span>University of Roehampton · CEBE · Computing Department</span>
  <div class="topbar-links">
  <a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener">ServiceDesk</a>
  <a href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">NEST</a>
@@ -136,16 +136,27 @@
  <svg class="nav-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
  </button>
  <div class="dropdown" role="menu">
+  <a class="dropdown-link" href="about.html" role="menuitem">About</a>
+ <a class="dropdown-link" href="cebe.html" role="menuitem">Our School (CEBE)</a>
+ <div class="dropdown-group">
  <a class="dropdown-link active" href="student-space.html" role="menuitem">Student Space</a>
- <a class="dropdown-link" href="industry.html" role="menuitem">Industry</a>
+ <button class="dropdown-expand" aria-expanded="false" aria-label="Show Student Space sections"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="14" height="14"><polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+ <div class="dropdown-sub" hidden>
+ <a class="dropdown-link dropdown-sublink" href="#study-resources" role="menuitem">Study Resources</a>
+ <a class="dropdown-link dropdown-sublink" href="#thesis" role="menuitem">Project Guidance</a>
+ <a class="dropdown-link dropdown-sublink" href="#library" role="menuitem">Library Services</a>
+ <a class="dropdown-link dropdown-sublink" href="#tutoring" role="menuitem">Tutoring</a>
+ <a class="dropdown-link dropdown-sublink" href="#dashboard" role="menuitem">Personal Dashboard</a>
+ </div>
+ </div>
  <a class="dropdown-link" href="alumni.html" role="menuitem">Alumni</a>
  <hr class="dropdown-divider" aria-hidden="true">
- <a class="dropdown-link" href="cebe.html" role="menuitem">Our School (CEBE)</a>
- <a class="dropdown-link" href="about.html" role="menuitem">About</a>
+ <a class="dropdown-link" href="industry.html" role="menuitem">Partners</a>
  </div>
  </div>
  <a class="nav-link" href="news.html">News</a>
  <a class="nav-link" href="support.html">Support</a>
+ <a class="nav-link" href="contact.html">Contact Us</a>
  </nav>
 
  <div class="nav-actions">
@@ -180,6 +191,7 @@
  <a class="nav-link" href="about.html">About</a>
  <a class="nav-link" href="cebe.html">Our School (CEBE)</a>
  <a class="nav-link" href="support.html">Support</a>
+ <a class="nav-link" href="contact.html">Contact Us</a>
  <a class="btn-signin" href="https://moodle.roehampton.ac.uk" target="_blank" rel="noopener">Sign in via Moodle</a>
  </div>
  </header>
@@ -199,23 +211,82 @@
  </div>
  </div>
 
- <section class="section" aria-labelledby="login-heading">
+ <section class="section" id="dashboard" aria-labelledby="login-heading">
  <div class="wrap">
 
- <!-- Login gateway -->
- <div class="login-gateway" aria-labelledby="login-heading">
- <h2 id="login-heading">Sign in to access your dashboard</h2>
- <p>Use your Roehampton credentials to access your timetable, grades, module materials and personalised resources through Moodle or NEST.</p>
- <div class="login-options">
- <a class="btn-moodle" href="https://moodle.roehampton.ac.uk" target="_blank" rel="noopener">
- Sign in via Moodle
- </a>
- <a class="btn-nest" href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">
- Sign in via NEST
- </a>
+ <!-- Gated content -->
+ <div style="margin-bottom:56px;" aria-labelledby="personal-heading">
+ <div class="section-head" style="margin-bottom:28px;">
+ <span class="eyebrow">Personal Dashboard</span>
+ <h2 id="personal-heading">Sign in to access your content</h2>
+ <p>These sections require your Roehampton login. Use Moodle or NEST to authenticate.</p>
  </div>
- <p style="font-size:.82rem;color:rgba(255,255,255,.6);margin-top:16px;">Roehampton email and password required · <a href="support.html" style="color:rgba(255,255,255,.8);text-decoration:underline;">Password help</a></p>
+ <div class="gated-grid">
+
+ <div class="gated-card" aria-label="Personal timetable — sign in required">
+ <div class="ghost">
+ <div style="font-size:1.5rem;margin-bottom:8px;"></div>
+ <h4>Personal Timetable</h4>
+ <p>Your weekly timetable, room changes and exam schedule.</p>
+ <div style="margin-top:12px;display:flex;gap:8px;">
+ <span class="badge badge-green" style="font-size:.7rem;">Week 1</span>
+ <span class="badge badge-gray" style="font-size:.7rem;">Week 2</span>
  </div>
+ </div>
+ <div class="gated-overlay">
+ <div class="lock"></div>
+ <p>Sign in to view your timetable</p>
+ <a href="https://moodle.roehampton.ac.uk" target="_blank" rel="noopener">Sign in via Moodle <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </div>
+
+ <div class="gated-card" aria-label="Grades and assessments — sign in required">
+ <div class="ghost">
+ <div style="font-size:1.5rem;margin-bottom:8px;"></div>
+ <h4>Grades &amp; Assessment Results</h4>
+ <p>View your marks, feedback and academic progress.</p>
+ </div>
+ <div class="gated-overlay">
+ <div class="lock"></div>
+ <p>Sign in to view your grades</p>
+ <a href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">Sign in via NEST <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </div>
+
+ <div class="gated-card" aria-label="Module materials — sign in required">
+ <div class="ghost">
+ <div style="font-size:1.5rem;margin-bottom:8px;"></div>
+ <h4>Module Materials</h4>
+ <p>Lecture slides, recordings, assignments and reading lists on Moodle.</p>
+ </div>
+ <div class="gated-overlay">
+ <div class="lock"></div>
+ <p>Access your modules on Moodle</p>
+ <a href="https://moodle.roehampton.ac.uk" target="_blank" rel="noopener">Go to Moodle <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </div>
+
+ <div class="gated-card" aria-label="Lab booking — sign in required">
+ <div class="ghost">
+ <div style="font-size:1.5rem;margin-bottom:8px;"></div>
+ <h4>Lab Booking System</h4>
+ <p>Book a Digby Stuart computer lab for project work or revision sessions.</p>
+ </div>
+ <div class="gated-overlay">
+ <div class="lock"></div>
+ <p>Sign in to book a lab</p>
+ <a href="https://moodle.roehampton.ac.uk" target="_blank" rel="noopener">Sign in to book <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </div>
+
+ </div>
+
+ <!-- Migration note -->
+ <div class="migration-note" role="note">
+ <strong> Future roadmap:</strong> We're building towards a unified Single Sign-On (SSO) experience — timetable, grades, module materials and this hub, all accessed through one Roehampton login. This Student Space will serve as the front door to that integrated experience, reducing the need to switch between NEST, Moodle and other systems. Planned for 2027.
+ </div>
+ </div>
+
 
  <!-- Public content 2-col -->
  <div class="student-grid">
@@ -224,7 +295,7 @@
  <div>
 
  <!-- Study Resources -->
- <div class="card" style="margin-bottom:24px;">
+ <div class="card" id="study-resources" style="margin-bottom:24px;">
  <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
  <h3>Study Resources</h3>
  <p style="margin-bottom:16px;">Publicly available guides, reading lists and academic support for Computing students.</p>
@@ -235,6 +306,7 @@
  <li> <a href="services.html#students">Software Downloads</a> — free licences for students</li>
  <li> <a href="https://www.roehampton.ac.uk/student-support/non-academic-and-academic-support/study-support/" target="_blank" rel="noopener">Academic Writing Support <svg class="ic-ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
  <li> <a href="https://moodle.roehampton.ac.uk" target="_blank" rel="noopener">Moodle VLE <svg class="ic-ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a> — all module materials</li>
+ <li> <a href="assets/downloads/roehampton-brand-guidelines.pdf" download>University Brand Guidelines (PDF) <svg class="ic-ext" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a> — download the university&#8217;s official brand guidelines, including the official logo and how to use it in presentations, posters and project reports</li>
  </ul>
  </div>
 
@@ -253,7 +325,7 @@
  </div>
 
  <!-- Library & university-wide services -->
- <div class="card" style="margin-bottom:24px;">
+ <div class="card" id="library" style="margin-bottom:24px;">
  <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
  <h3>Library &amp; University-wide Services</h3>
  <p style="margin-bottom:16px;">Central university services available to every Computing student.</p>
@@ -268,7 +340,7 @@
  </div>
 
  <!-- Study Groups & Peer Tutoring -->
- <div class="card" style="margin-bottom:24px;">
+ <div class="card" id="tutoring" style="margin-bottom:24px;">
  <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
  <h3>Study Groups &amp; Peer Tutoring</h3>
  <p style="margin-bottom:14px;">Join or start a study group for any Computing module. Peer tutors — trained students in higher years — offer free one-to-one sessions.</p>
@@ -367,79 +439,6 @@
 
  </div><!-- end 2-col grid -->
 
- <!-- Gated content -->
- <div style="margin-top:56px;" aria-labelledby="personal-heading">
- <div class="section-head" style="margin-bottom:28px;">
- <span class="eyebrow">Personal Dashboard</span>
- <h2 id="personal-heading">Sign in to access your content</h2>
- <p>These sections require your Roehampton login. Use Moodle or NEST to authenticate.</p>
- </div>
- <div class="gated-grid">
-
- <div class="gated-card" aria-label="Personal timetable — sign in required">
- <div class="ghost">
- <div style="font-size:1.5rem;margin-bottom:8px;"></div>
- <h4>Personal Timetable</h4>
- <p>Your weekly timetable, room changes and exam schedule.</p>
- <div style="margin-top:12px;display:flex;gap:8px;">
- <span class="badge badge-green" style="font-size:.7rem;">Week 1</span>
- <span class="badge badge-gray" style="font-size:.7rem;">Week 2</span>
- </div>
- </div>
- <div class="gated-overlay">
- <div class="lock"></div>
- <p>Sign in to view your timetable</p>
- <a href="https://moodle.roehampton.ac.uk" target="_blank" rel="noopener">Sign in via Moodle <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
- </div>
- </div>
-
- <div class="gated-card" aria-label="Grades and assessments — sign in required">
- <div class="ghost">
- <div style="font-size:1.5rem;margin-bottom:8px;"></div>
- <h4>Grades &amp; Assessment Results</h4>
- <p>View your marks, feedback and academic progress.</p>
- </div>
- <div class="gated-overlay">
- <div class="lock"></div>
- <p>Sign in to view your grades</p>
- <a href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">Sign in via NEST <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
- </div>
- </div>
-
- <div class="gated-card" aria-label="Module materials — sign in required">
- <div class="ghost">
- <div style="font-size:1.5rem;margin-bottom:8px;"></div>
- <h4>Module Materials</h4>
- <p>Lecture slides, recordings, assignments and reading lists on Moodle.</p>
- </div>
- <div class="gated-overlay">
- <div class="lock"></div>
- <p>Access your modules on Moodle</p>
- <a href="https://moodle.roehampton.ac.uk" target="_blank" rel="noopener">Go to Moodle <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
- </div>
- </div>
-
- <div class="gated-card" aria-label="Lab booking — sign in required">
- <div class="ghost">
- <div style="font-size:1.5rem;margin-bottom:8px;"></div>
- <h4>Lab Booking System</h4>
- <p>Book a Digby Stuart computer lab for project work or revision sessions.</p>
- </div>
- <div class="gated-overlay">
- <div class="lock"></div>
- <p>Sign in to book a lab</p>
- <a href="https://moodle.roehampton.ac.uk" target="_blank" rel="noopener">Sign in to book <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
- </div>
- </div>
-
- </div>
-
- <!-- Migration note -->
- <div class="migration-note" role="note">
- <strong> Future roadmap:</strong> We're building towards a unified Single Sign-On (SSO) experience — timetable, grades, module materials and this hub, all accessed through one Roehampton login. This Student Space will serve as the front door to that integrated experience, reducing the need to switch between NEST, Moodle and other systems. Planned for 2027.
- </div>
- </div>
-
  </div>
  </section>
 
@@ -495,7 +494,7 @@
  <!-- Academic area band -->
  <div class="footer-cebe">
  <div>
- <span class="cebe-kicker">Our academic area</span>
+ <span class="cebe-kicker">The Computing Department is part of</span>
  <h3>School of Computing, Engineering and the Built Environment (CEBE)</h3>
  <p>A connected, inclusive community where innovation meets opportunity — professionally focused education designed with industry, in purpose-built spaces like the Sir David Bell Building.</p>
  </div>
@@ -545,6 +544,7 @@
  <div>
  <h4>Contact Us</h4>
  <ul>
+ <li><a href="services.html#faq">FAQs</a></li>
  <li><a href="support.html#enquiries">By enquiry type</a></li>
  <li><a href="programmes.html#admissions">Admissions</a></li>
  <li><a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener">ServiceDesk</a></li>
@@ -602,5 +602,11 @@
  </div>
 
  <script src="assets/js/main.js"></script>
+ <!-- Accessibility banner (dismissible) -->
+ <div class="a11y-banner" id="a11yBanner" role="region" aria-label="Accessibility statement" hidden>
+ <p><strong>This site is built for everyone.</strong> The Computing Hub conforms to WCAG 2.1 Level AA. <a href="accessibility.html">Read the accessibility statement</a></p>
+ <button class="a11y-banner-close" id="a11yBannerClose" aria-label="Dismiss accessibility notice">&#215;</button>
+ </div>
+
 </body>
 </html>

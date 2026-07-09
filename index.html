@@ -75,7 +75,7 @@
  <!-- Top bar -->
  <div class="topbar">
  <div class="wrap">
- <span>University of Roehampton · School of Computing, Engineering and the Built Environment (CEBE)</span>
+ <span>University of Roehampton · CEBE · Computing Department</span>
  <div class="topbar-links">
  <a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener">ServiceDesk</a>
  <a href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">NEST</a>
@@ -103,18 +103,28 @@
  <svg class="nav-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
  </button>
  <div class="dropdown" role="menu">
- <a class="dropdown-link" href="cebe.html#history" role="menuitem">History of our School</a>
+  <a class="dropdown-link" href="about.html" role="menuitem">About</a>
+ <a class="dropdown-link" href="cebe.html" role="menuitem">Our School (CEBE)</a>
+ <div class="dropdown-group">
  <a class="dropdown-link" href="student-space.html" role="menuitem">Student Space</a>
- <a class="dropdown-link" href="industry.html" role="menuitem">Industry</a>
+ <button class="dropdown-expand" aria-expanded="false" aria-label="Show Student Space sections"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="14" height="14"><polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+ <div class="dropdown-sub" hidden>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#study-resources" role="menuitem">Study Resources</a>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#thesis" role="menuitem">Project Guidance</a>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#library" role="menuitem">Library Services</a>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#tutoring" role="menuitem">Tutoring</a>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#dashboard" role="menuitem">Personal Dashboard</a>
+ </div>
+ </div>
  <a class="dropdown-link" href="alumni.html" role="menuitem">Alumni</a>
  <hr class="dropdown-divider" aria-hidden="true">
- <a class="dropdown-link" href="cebe.html" role="menuitem">Our School (CEBE)</a>
- <a class="dropdown-link" href="about.html" role="menuitem">About</a>
+ <a class="dropdown-link" href="industry.html" role="menuitem">Partners</a>
  </div>
  </div>
 
  <a class="nav-link" href="news.html">News</a>
  <a class="nav-link" href="support.html">Support</a>
+ <a class="nav-link" href="contact.html">Contact Us</a>
  </nav>
 
  <div class="nav-actions">
@@ -153,6 +163,7 @@
  <a class="nav-link" href="about.html">About</a>
  <a class="nav-link" href="cebe.html">Our School (CEBE)</a>
  <a class="nav-link" href="support.html">Support</a>
+ <a class="nav-link" href="contact.html">Contact Us</a>
  <a class="btn-signin" href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">Sign in</a>
  </div>
  </header>
@@ -163,13 +174,13 @@
  <section class="carousel" id="heroCarousel" aria-roledescription="carousel" aria-label="Highlights from the Computing Department">
  <div class="carousel-track" id="carouselTrack">
 
- <a class="carousel-slide" href="cebe.html" aria-label="Welcome to CEBE — School of Computing, Engineering and the Built Environment">
+ <a class="carousel-slide" href="about.html" aria-label="Welcome to the Computing Department — part of the School of Computing, Engineering and the Built Environment">
  <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1600&q=60" alt="Students listening to a lecture in a modern university lecture theatre" loading="eager">
  <div class="carousel-content">
- <span class="carousel-kicker">Welcome to CEBE</span>
- <h2>School of Computing, Engineering and the Built Environment</h2>
- <p>Join a vibrant community where we shape sustainable futures through innovation, collaboration, and real-world impact.</p>
- <span class="carousel-cta">Discover our School</span>
+ <span class="carousel-kicker" role="link" tabindex="0" style="cursor:pointer;" onclick="event.preventDefault();event.stopPropagation();window.open('https://www.roehampton.ac.uk/study/academic-areas/computing-engineering-and-the-built-environment/','_blank','noopener');" onkeydown="if(event.key==='Enter'){event.preventDefault();event.stopPropagation();window.open('https://www.roehampton.ac.uk/study/academic-areas/computing-engineering-and-the-built-environment/','_blank','noopener');}">Part of the School of CEBE</span>
+ <h2>Welcome to the Computing Department</h2>
+ <p>Join a vibrant community where we shape the digital future through innovation, collaboration, and real-world impact.</p>
+ <span class="carousel-cta">Discover our department</span>
  </div>
  </a>
 
@@ -212,7 +223,7 @@
  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
  </button>
  <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Choose slide">
- <button class="carousel-dot active" role="tab" aria-selected="true" aria-label="Slide 1: Welcome to CEBE"></button>
+ <button class="carousel-dot active" role="tab" aria-selected="true" aria-label="Slide 1: Welcome to the Computing Department"></button>
  <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Slide 2: Computing Conference 2026"></button>
  <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Slide 3: Open Day and admissions"></button>
  <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Slide 4: Student project showcase"></button>
@@ -234,33 +245,67 @@
  <a class="quick-link" href="#research">Research</a>
  <a class="quick-link" href="student-space.html#thesis">Project Guidelines</a>
  <a class="quick-link" href="support.html">Support</a>
+ <a class="quick-link" href="services.html#faq">FAQs</a>
  </div>
  </div>
  </section>
 
- <!-- ── Stats ──────────────────────────────────────────── -->
- <div class="stats-bar" aria-label="Department key figures">
+
+ <!-- ══ 3-column homepage layout ══════════════════ -->
+ <div class="home-layout">
+
+ <div class="home-center">
+ <!-- ── News ───────────────────────────────────────── -->
+ <section class="section" id="home-news" aria-labelledby="news-heading" style="padding-top:0;">
  <div class="wrap">
- <div class="stats-grid">
+ <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:28px;flex-wrap:wrap;gap:16px;">
  <div>
- <div class="stat-num" data-target="320" data-suffix="+">320+</div>
- <div class="stat-label">Computing students</div>
+ <span class="eyebrow">News</span>
+ <h2 id="news-heading" style="margin-top:8px;">Latest from the department</h2>
  </div>
- <div>
- <div class="stat-num" data-target="30" data-suffix="">30</div>
- <div class="stat-label">Programmes offered</div>
+ <a href="news.html" class="btn btn-ghost-green btn-sm">All news <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
  </div>
- <div>
- <div class="stat-num" data-target="40" data-suffix="+">40+</div>
- <div class="stat-label">Free software licences</div>
+ <div class="grid-3">
+<article class="news-card">
+ <div class="news-card-img">
+ <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=60" alt="Lines of programming code on a computer screen" loading="lazy">
+ <span class="badge badge-green">Software</span>
  </div>
- <div>
- <div class="stat-num" data-target="247" data-suffix="">24/7</div>
- <div class="stat-label">Online support access</div>
+ <div class="news-card-body">
+ <div class="news-card-date">30 Jun 2026</div>
+ <h3>GitHub Copilot now free for all Computing students</h3>
+ <p>All students enrolled in Computing programmes now have access to GitHub Copilot at no cost.</p>
+ <a class="card-link" href="news.html">Read more <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </article>
+<article class="news-card">
+ <div class="news-card-img">
+ <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=60" alt="White robot representing artificial intelligence research" loading="lazy">
+ <span class="badge" style="background:rgba(255,255,255,.85);color:var(--green-dark);">Research</span>
+ </div>
+ <div class="news-card-body">
+ <div class="news-card-date">18 Jun 2026</div>
+ <h3>Roehampton joins national AI ethics research consortium</h3>
+ <p>The Computing Department is part of a new UK-wide initiative examining responsible AI deployment in higher education.</p>
+ <a class="card-link" href="news.html">Read more <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </article>
+<article class="news-card">
+ <div class="news-card-img">
+ <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60" alt="Cyber security specialist working at a computer with code on screen" loading="lazy">
+ <span class="badge badge-yellow">Events</span>
+ </div>
+ <div class="news-card-body">
+ <div class="news-card-date">5 Jun 2026</div>
+ <h3>Computing students win national cybersecurity hackathon</h3>
+ <p>A team of four final-year students took first place at HackSecure 2026, competing against 40 universities.</p>
+ <a class="card-link" href="news.html">Read more <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </article>
  </div>
  </div>
- </div>
- </div>
+ </section>
+
 
  <!-- ── Services ───────────────────────────────────────── -->
  <section class="section" id="services" aria-labelledby="services-heading">
@@ -301,6 +346,99 @@
  </div>
  </div>
  </section>
+
+ <!-- ── Community & Belonging ──────────────────────────── -->
+ <div class="community-strip" aria-labelledby="community-heading">
+ <div class="wrap">
+ <div class="section-head" style="margin-bottom:0;">
+ <span class="eyebrow">Community &amp; Belonging</span>
+ <h2 id="community-heading">Find your place in Computing</h2>
+ <p>From peer mentoring to industry networks — we're building a community where everyone belongs.</p>
+ </div>
+ <div class="community-cards">
+ <a class="community-card" href="student-space.html">
+ <div class="c-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+ <h4>Computing Society</h4>
+ <p>Hackathons, workshops and socials</p>
+ </a>
+ <a class="community-card" href="student-space.html">
+ <div class="c-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
+ <h4>Women in Computing</h4>
+ <p>Mentorship and career support</p>
+ </a>
+ <a class="community-card" href="student-space.html">
+ <div class="c-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
+ <h4>Peer Tutoring</h4>
+ <p>Get help or become a peer mentor</p>
+ </a>
+ <a class="community-card" href="alumni.html">
+ <div class="c-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
+ <h4>Alumni Network</h4>
+ <p>Jobs, mentoring and networking events</p>
+ </a>
+ </div>
+ </div>
+ </div>
+
+ </div>
+
+ <!-- ── Right column: Events ──────────────────────── -->
+ <aside class="home-col home-col-right" aria-labelledby="seminars-heading">
+ <span class="eyebrow">Events</span>
+ <h2 id="seminars-heading" style="margin:8px 0 8px;">Upcoming seminars</h2>
+ <p style="margin-bottom:24px;">Open to students, staff and the wider community.</p>
+ <div class="seminar-list">
+ <article class="seminar-item">
+ <div class="seminar-date"><span class="sem-day">10</span><span class="sem-month">Jul</span></div>
+ <div class="seminar-body">
+ <span class="badge badge-green" style="margin-bottom:4px;font-size:.68rem;">AI Seminar</span>
+ <h4>Large Language Models and Code Generation</h4>
+ <p class="meta">Prof. A. Ramesh · Digby Stuart LT1 · 14:00</p>
+ </div>
+ <a class="seminar-reg" href="mailto:computing@roehampton.ac.uk?subject=Seminar%20Registration%2010%20Jul">Register</a>
+ </article>
+ <article class="seminar-item">
+ <div class="seminar-date"><span class="sem-day">14</span><span class="sem-month">Jul</span></div>
+ <div class="seminar-body">
+ <span class="badge badge-green" style="margin-bottom:4px;font-size:.68rem;">Cyber Seminar</span>
+ <h4>Quantum-safe Cryptography: Preparing for Q-Day</h4>
+ <p class="meta">Dr J. Williams · Online (Zoom) · 15:00</p>
+ </div>
+ <a class="seminar-reg" href="mailto:computing@roehampton.ac.uk?subject=Seminar%20Registration%2014%20Jul">Register</a>
+ </article>
+ <article class="seminar-item">
+ <div class="seminar-date"><span class="sem-day">18</span><span class="sem-month">Jul</span></div>
+ <div class="seminar-body">
+ <span class="badge badge-yellow" style="margin-bottom:4px;font-size:.68rem;">Industry Talk</span>
+ <h4>UX Research Methods in Production</h4>
+ <p class="meta">Industry guest, Spotify · Whitelands LT3 · 13:00</p>
+ </div>
+ <a class="seminar-reg" href="mailto:computing@roehampton.ac.uk?subject=Seminar%20Registration%2018%20Jul">Register</a>
+ </article>
+   <article class="seminar-item">
+ <div class="seminar-date"><span class="sem-day">24</span><span class="sem-month">Jul</span></div>
+ <div class="seminar-body">
+ <span class="badge badge-green" style="margin-bottom:4px;font-size:.68rem;">Research Seminar</span>
+ <h4>Ethics in Algorithmic Decision-Making</h4>
+ <p class="meta">Dr S. Okafor · Digby Stuart LT2 · 14:30</p>
+ </div>
+ <a class="seminar-reg" href="mailto:computing@roehampton.ac.uk?subject=Seminar%20Registration%2024%20Jul">Register</a>
+ </article>
+<article class="seminar-item">
+ <div class="seminar-date"><span class="sem-day">1</span><span class="sem-month">Sep</span></div>
+ <div class="seminar-body">
+ <span class="badge badge-yellow" style="margin-bottom:4px;font-size:.68rem;">Event</span>
+ <h4>Hackathon 2026 Kickoff &amp; Industry Fair</h4>
+ <p class="meta">Computing Society · Erasmus House Atrium · All day</p>
+ </div>
+ <a class="seminar-reg" href="student-space.html">More info</a>
+ </article>
+ </div>
+ <div style="margin-top:20px;">
+ <a class="btn btn-ghost-green btn-sm" href="news.html#events">All events <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </aside>
+ </div>
 
  <!-- ── Programmes Showcase ────────────────────────────── -->
  <section class="section section-alt" id="programmes" aria-labelledby="prog-heading">
@@ -390,7 +528,7 @@
  <!-- ── Research Themes + Upcoming Seminars ────────────── -->
  <section class="section" id="research" aria-labelledby="research-heading">
  <div class="wrap">
- <div class="two-col-grid">
+ <div>
 
  <!-- Research themes -->
  <div>
@@ -440,241 +578,31 @@
  </div>
  </div>
 
- <!-- Upcoming seminars -->
- <div>
- <span class="eyebrow">Events</span>
- <h2 id="seminars-heading" style="margin:8px 0 8px;">Upcoming seminars</h2>
- <p style="margin-bottom:24px;">Open to students, staff and the wider community.</p>
- <div class="seminar-list">
- <article class="seminar-item">
- <div class="seminar-date"><span class="sem-day">10</span><span class="sem-month">Jul</span></div>
- <div class="seminar-body">
- <span class="badge badge-green" style="margin-bottom:4px;font-size:.68rem;">AI Seminar</span>
- <h4>Large Language Models and Code Generation</h4>
- <p class="meta">Prof. A. Ramesh · Digby Stuart LT1 · 14:00</p>
- </div>
- <a class="seminar-reg" href="mailto:computing@roehampton.ac.uk?subject=Seminar%20Registration%2010%20Jul">Register</a>
- </article>
- <article class="seminar-item">
- <div class="seminar-date"><span class="sem-day">14</span><span class="sem-month">Jul</span></div>
- <div class="seminar-body">
- <span class="badge badge-green" style="margin-bottom:4px;font-size:.68rem;">Cyber Seminar</span>
- <h4>Quantum-safe Cryptography: Preparing for Q-Day</h4>
- <p class="meta">Dr J. Williams · Online (Zoom) · 15:00</p>
- </div>
- <a class="seminar-reg" href="mailto:computing@roehampton.ac.uk?subject=Seminar%20Registration%2014%20Jul">Register</a>
- </article>
- <article class="seminar-item">
- <div class="seminar-date"><span class="sem-day">18</span><span class="sem-month">Jul</span></div>
- <div class="seminar-body">
- <span class="badge badge-yellow" style="margin-bottom:4px;font-size:.68rem;">Industry Talk</span>
- <h4>UX Research Methods in Production</h4>
- <p class="meta">Industry guest, Spotify · Whitelands LT3 · 13:00</p>
- </div>
- <a class="seminar-reg" href="mailto:computing@roehampton.ac.uk?subject=Seminar%20Registration%2018%20Jul">Register</a>
- </article>
- <article class="seminar-item">
- <div class="seminar-date"><span class="sem-day">24</span><span class="sem-month">Jul</span></div>
- <div class="seminar-body">
- <span class="badge badge-green" style="margin-bottom:4px;font-size:.68rem;">Research Seminar</span>
- <h4>Ethics in Algorithmic Decision-Making</h4>
- <p class="meta">Dr S. Okafor · Digby Stuart LT2 · 14:30</p>
- </div>
- <a class="seminar-reg" href="mailto:computing@roehampton.ac.uk?subject=Seminar%20Registration%2024%20Jul">Register</a>
- </article>
- <article class="seminar-item">
- <div class="seminar-date"><span class="sem-day">1</span><span class="sem-month">Sep</span></div>
- <div class="seminar-body">
- <span class="badge badge-yellow" style="margin-bottom:4px;font-size:.68rem;">Event</span>
- <h4>Hackathon 2026 Kickoff &amp; Industry Fair</h4>
- <p class="meta">Computing Society · Erasmus House Atrium · All day</p>
- </div>
- <a class="seminar-reg" href="student-space.html">More info</a>
- </article>
- </div>
- <div style="margin-top:20px;">
- <a class="btn btn-ghost-green btn-sm" href="news.html#events">All events <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
- </div>
- </div>
 
  </div>
  </div>
  </section>
 
- <!-- ── News ───────────────────────────────────────────── -->
- <section class="section section-alt" aria-labelledby="news-heading">
+ <!-- ── Stats ──────────────────────────────────────────── -->
+ <div class="stats-bar" aria-label="Department key figures">
  <div class="wrap">
- <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;flex-wrap:wrap;gap:16px;">
+ <div class="stats-grid">
  <div>
- <span class="eyebrow">News</span>
- <h2 id="news-heading" style="margin-top:8px;">Latest from the department</h2>
+ <div class="stat-num" data-target="320" data-suffix="+">320+</div>
+ <div class="stat-label">Computing students</div>
  </div>
- <a href="news.html" class="btn btn-ghost-green btn-sm">All news <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
- </div>
- <div class="grid-3">
- <article class="news-card">
- <div class="news-card-img">
- <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=60" alt="Lines of programming code on a computer screen" loading="lazy">
- <span class="badge badge-green">Software</span>
- </div>
- <div class="news-card-body">
- <div class="news-card-date">30 Jun 2026</div>
- <h3>GitHub Copilot now free for all Computing students</h3>
- <p>All students enrolled in Computing programmes now have access to GitHub Copilot at no cost.</p>
- <a class="card-link" href="news.html">Read more <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
- </div>
- </article>
- <article class="news-card">
- <div class="news-card-img">
- <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=60" alt="White robot representing artificial intelligence research" loading="lazy">
- <span class="badge" style="background:rgba(255,255,255,.85);color:var(--green-dark);">Research</span>
- </div>
- <div class="news-card-body">
- <div class="news-card-date">18 Jun 2026</div>
- <h3>Roehampton joins national AI ethics research consortium</h3>
- <p>The Computing Department is part of a new UK-wide initiative examining responsible AI deployment in higher education.</p>
- <a class="card-link" href="news.html">Read more <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
- </div>
- </article>
- <article class="news-card">
- <div class="news-card-img">
- <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60" alt="Cyber security specialist working at a computer with code on screen" loading="lazy">
- <span class="badge badge-yellow">Events</span>
- </div>
- <div class="news-card-body">
- <div class="news-card-date">5 Jun 2026</div>
- <h3>Computing students win national cybersecurity hackathon</h3>
- <p>A team of four final-year students took first place at HackSecure 2026, competing against 40 universities.</p>
- <a class="card-link" href="news.html">Read more <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
- </div>
- </article>
- </div>
- </div>
- </section>
-
- <!-- ── Student Spotlight ──────────────────────────────── -->
- <section class="section" aria-labelledby="spotlight-heading">
- <div class="wrap">
- <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:36px;flex-wrap:wrap;gap:16px;">
  <div>
- <span class="eyebrow">Student Spotlight</span>
- <h2 id="spotlight-heading" style="margin-top:8px;">Outstanding Computing graduates</h2>
+ <div class="stat-num" data-target="30" data-suffix="">30</div>
+ <div class="stat-label">Programmes offered</div>
  </div>
- <a href="alumni.html" class="btn btn-ghost-green btn-sm">All alumni <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
- </div>
- <div class="spotlight-grid">
- <!-- Featured -->
- <div class="spotlight-card featured">
- <div class="spotlight-avatar-sm"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=60" alt="Portrait of Maria Chen" loading="lazy"></div>
- <div class="spotlight-body">
- <div class="sp-year">Class of 2026 · Featured</div>
- <h3>Maria Chen</h3>
- <p class="sp-prog">BSc Computer Science · First Class Honours</p>
- <blockquote>"The projects I built at Roehampton are what landed me my role at Monzo. The department's support was genuinely incredible — I went from a complete beginner to shipping production code within 3 years."</blockquote>
- <p style="margin-top:14px;font-size:.82rem;color:var(--green-dark);font-weight:600;">Now: Software Engineer, Monzo Bank</p>
- </div>
- </div>
- <!-- Mini 1 -->
- <div class="spotlight-mini">
- <div class="spotlight-avatar-sm"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=60" alt="Portrait of Tobias Osei" loading="lazy"></div>
- <h4>Tobias Osei</h4>
- <p class="sp-prog">MSc Cyber Security · Distinction</p>
- <p class="sp-outcome">Security Analyst, GCHQ</p>
- <p style="font-size:.8rem;color:var(--text-muted);margin-top:8px;">Class of 2025</p>
- </div>
- <!-- Mini 2 -->
- <div class="spotlight-mini">
- <div class="spotlight-avatar-sm"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=60" alt="Portrait of Priya Nair" loading="lazy"></div>
- <h4>Priya Nair</h4>
- <p class="sp-prog">MSc Data Science · Merit</p>
- <p class="sp-outcome">Data Scientist, NHS Digital</p>
- <p style="font-size:.8rem;color:var(--text-muted);margin-top:8px;">Class of 2025</p>
- </div>
- </div>
- </div>
- </section>
-
- <!-- ── Community & Belonging ──────────────────────────── -->
- <div class="community-strip" aria-labelledby="community-heading">
- <div class="wrap">
- <div class="section-head" style="margin-bottom:0;">
- <span class="eyebrow">Community &amp; Belonging</span>
- <h2 id="community-heading">Find your place in Computing</h2>
- <p>From peer mentoring to industry networks — we're building a community where everyone belongs.</p>
- </div>
- <div class="community-cards">
- <a class="community-card" href="student-space.html">
- <div class="c-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
- <h4>Computing Society</h4>
- <p>Hackathons, workshops and socials</p>
- </a>
- <a class="community-card" href="student-space.html">
- <div class="c-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
- <h4>Women in Computing</h4>
- <p>Mentorship and career support</p>
- </a>
- <a class="community-card" href="student-space.html">
- <div class="c-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
- <h4>Peer Tutoring</h4>
- <p>Get help or become a peer mentor</p>
- </a>
- <a class="community-card" href="alumni.html">
- <div class="c-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
- <h4>Alumni Network</h4>
- <p>Jobs, mentoring and networking events</p>
- </a>
- </div>
- </div>
- </div>
-
- <!-- ── Resource strip ─────────────────────────────────── -->
- <div class="resource-strip" aria-labelledby="resources-heading">
- <div class="wrap">
- <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:32px;flex-wrap:wrap;gap:16px;">
  <div>
- <span class="eyebrow">Resource Centre</span>
- <h2 id="resources-heading" style="margin-top:8px;">Guides, tools &amp; publications</h2>
+ <div class="stat-num" data-target="40" data-suffix="+">40+</div>
+ <div class="stat-label">Free software licences</div>
  </div>
- <a href="support.html#resources" class="btn btn-ghost-green btn-sm">View all <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ <div>
+ <div class="stat-num" data-target="247" data-suffix="">24/7</div>
+ <div class="stat-label">Online support access</div>
  </div>
- <div class="grid-4">
- <a class="resource-card" href="#">
- <div class="resource-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
- <h4>Student IT Guide</h4>
- <p>Everything you need to get set up from day one.</p>
- <div class="arrow">Download PDF <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
- </a>
- <a class="resource-card" href="#">
- <div class="resource-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
- <h4>Cybersecurity Handbook</h4>
- <p>Protect yourself online: passwords, phishing and safe browsing.</p>
- <div class="arrow">Read online <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
- </a>
- <a class="resource-card" href="#">
- <div class="resource-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
- <h4>Cloud &amp; Storage Guide</h4>
- <p>OneDrive, SharePoint and how to back up your work safely.</p>
- <div class="arrow">Read online <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
- </a>
- <a class="resource-card" href="#">
- <div class="resource-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
- <h4>Software Catalogue 2026</h4>
- <p>Full list of free software licences available to students and staff.</p>
- <div class="arrow">Browse catalogue <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
- </a>
- </div>
- </div>
- </div>
-
- <!-- ── Partner with Us CTA ────────────────────────────── -->
- <div class="partner-cta-section" aria-labelledby="partner-heading">
- <div class="wrap">
- <span class="eyebrow">Industry Partners</span>
- <h2 id="partner-heading" style="margin:12px auto 16px;max-width:22ch;">Shape the next generation of tech talent.</h2>
- <p>Partner with the Roehampton Computing Department to co-design curricula, host placements, sponsor projects and recruit graduates. Together we build a stronger industry.</p>
- <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
- <a class="btn btn-primary" href="industry.html">Explore partnerships</a>
- <a class="btn btn-ghost-green" href="alumni.html">Alumni &amp; jobs board</a>
  </div>
  </div>
  </div>
@@ -693,6 +621,7 @@
  </div>
  </section>
 
+
  </main>
 
  <!-- Footer -->
@@ -702,7 +631,7 @@
  <!-- Academic area band -->
  <div class="footer-cebe">
  <div>
- <span class="cebe-kicker">Our academic area</span>
+ <span class="cebe-kicker">The Computing Department is part of</span>
  <h3>School of Computing, Engineering and the Built Environment (CEBE)</h3>
  <p>A connected, inclusive community where innovation meets opportunity — professionally focused education designed with industry, in purpose-built spaces like the Sir David Bell Building.</p>
  </div>
@@ -752,6 +681,7 @@
  <div>
  <h4>Contact Us</h4>
  <ul>
+ <li><a href="services.html#faq">FAQs</a></li>
  <li><a href="support.html#enquiries">By enquiry type</a></li>
  <li><a href="programmes.html#admissions">Admissions</a></li>
  <li><a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener">ServiceDesk</a></li>
@@ -812,5 +742,11 @@
  </div>
 
  <script src="assets/js/main.js"></script>
+ <!-- Accessibility banner (dismissible) -->
+ <div class="a11y-banner" id="a11yBanner" role="region" aria-label="Accessibility statement" hidden>
+ <p><strong>This site is built for everyone.</strong> The Computing Hub conforms to WCAG 2.1 Level AA. <a href="accessibility.html">Read the accessibility statement</a></p>
+ <button class="a11y-banner-close" id="a11yBannerClose" aria-label="Dismiss accessibility notice">&#215;</button>
+ </div>
+
 </body>
 </html>

@@ -118,7 +118,7 @@
  <!-- Top bar -->
  <div class="topbar">
  <div class="wrap">
- <span>University of Roehampton · School of Computing, Engineering and the Built Environment (CEBE)</span>
+ <span>University of Roehampton · CEBE · Computing Department</span>
  <div class="topbar-links">
  <a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener">ServiceDesk</a>
  <a href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">NEST</a>
@@ -144,17 +144,27 @@
  <svg class="nav-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
  </button>
  <div class="dropdown" role="menu">
- <a class="dropdown-link" href="cebe.html#history" role="menuitem">History of our School</a>
+  <a class="dropdown-link" href="about.html" role="menuitem">About</a>
+ <a class="dropdown-link" href="cebe.html" role="menuitem">Our School (CEBE)</a>
+ <div class="dropdown-group">
  <a class="dropdown-link" href="student-space.html" role="menuitem">Student Space</a>
- <a class="dropdown-link" href="industry.html" role="menuitem">Industry</a>
+ <button class="dropdown-expand" aria-expanded="false" aria-label="Show Student Space sections"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="14" height="14"><polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+ <div class="dropdown-sub" hidden>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#study-resources" role="menuitem">Study Resources</a>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#thesis" role="menuitem">Project Guidance</a>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#library" role="menuitem">Library Services</a>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#tutoring" role="menuitem">Tutoring</a>
+ <a class="dropdown-link dropdown-sublink" href="student-space.html#dashboard" role="menuitem">Personal Dashboard</a>
+ </div>
+ </div>
  <a class="dropdown-link" href="alumni.html" role="menuitem">Alumni</a>
  <hr class="dropdown-divider" aria-hidden="true">
- <a class="dropdown-link" href="cebe.html" role="menuitem">Our School (CEBE)</a>
- <a class="dropdown-link" href="about.html" role="menuitem">About</a>
+ <a class="dropdown-link" href="industry.html" role="menuitem">Partners</a>
  </div>
  </div>
  <a class="nav-link" href="news.html">News</a>
  <a class="nav-link active" href="support.html">Support</a>
+ <a class="nav-link" href="contact.html">Contact Us</a>
  </nav>
  <div class="nav-actions">
  <button class="search-btn" id="searchBtn" aria-label="Open search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
@@ -180,6 +190,7 @@
  <a class="nav-link" href="about.html">About</a>
  <a class="nav-link" href="cebe.html">Our School (CEBE)</a>
  <a class="nav-link active" href="support.html">Support</a>
+ <a class="nav-link" href="contact.html">Contact Us</a>
  <a class="btn-signin" href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener">Sign in</a>
  </div>
  </header>
@@ -280,96 +291,13 @@
  </section>
 
  <!-- FAQ + Sidebar -->
- <section class="section section-alt" aria-labelledby="faq-heading">
+ <section class="section section-alt" aria-label="System status and useful links">
  <div class="wrap">
- <div class="layout-sidebar">
+ <div class="grid-3" style="align-items:start;">
 
- <!-- FAQ -->
- <div>
- <div class="section-head" style="text-align:left;margin:0 0 40px;">
- <span class="eyebrow">FAQ</span>
- <h2 id="faq-heading">Frequently asked questions</h2>
- </div>
-
- <!-- Accounts -->
- <div class="faq-section">
- <h3>Accounts & Access</h3>
- <div class="accordion" role="list">
- <div class="accordion-item" role="listitem">
- <button class="accordion-btn" aria-expanded="false">How do I log into NEST for the first time?<span class="accordion-icon" aria-hidden="true">+</span></button>
- <div class="accordion-body">Visit <a href="https://roehamptonprod.sharepoint.com/sites/portal/nest/" target="_blank" rel="noopener" style="color:var(--green);">NEST</a> and sign in with your university username (your student ID) and the temporary password sent to your personal email on enrolment. You'll be prompted to change your password and set up MFA on first login.</div>
- </div>
- <div class="accordion-item" role="listitem">
- <button class="accordion-btn" aria-expanded="false">I've forgotten my password. How do I reset it?<span class="accordion-icon" aria-hidden="true">+</span></button>
- <div class="accordion-body">Go to <a href="https://aka.ms/sspr" target="_blank" rel="noopener" style="color:var(--green);">Microsoft Self-Service Password Reset</a> and enter your @roehampton.ac.uk email address. You'll need access to your personal email or mobile phone for the verification code. If you're locked out completely, contact the ServiceDesk with your student ID card.</div>
- </div>
- <div class="accordion-item" role="listitem">
- <button class="accordion-btn" aria-expanded="false">How do I set up multi-factor authentication (MFA)?<span class="accordion-icon" aria-hidden="true">+</span></button>
- <div class="accordion-body">Download the Microsoft Authenticator app on your phone (iOS or Android). Then sign into your Roehampton account at <a href="https://mysignins.microsoft.com" target="_blank" rel="noopener" style="color:var(--green);">mysignins.microsoft.com</a> and follow the prompts to add the Authenticator app as your verification method. MFA is mandatory for all university systems.</div>
- </div>
- </div>
- </div>
-
- <!-- Wi-Fi -->
- <div class="faq-section">
- <h3>Wi-Fi & Network</h3>
- <div class="accordion" role="list">
- <div class="accordion-item" role="listitem">
- <button class="accordion-btn" aria-expanded="false">How do I connect to eduroam on campus?<span class="accordion-icon" aria-hidden="true">+</span></button>
- <div class="accordion-body">Select the <strong>eduroam</strong> network on your device. When prompted, enter your <strong>full @roehampton.ac.uk email address</strong> as the username and your university password. On Windows, you may need to accept the certificate from roehampton.ac.uk. Download the <a href="#" style="color:var(--green);">eduroam configuration assistant</a> for automatic setup.</div>
- </div>
- <div class="accordion-item" role="listitem">
- <button class="accordion-btn" aria-expanded="false">How do I access university resources from home using VPN?<span class="accordion-icon" aria-hidden="true">+</span></button>
- <div class="accordion-body">Download <strong>Cisco AnyConnect</strong> from NEST <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Software & Apps. Install it, then connect to <strong>vpn.roehampton.ac.uk</strong> using your university credentials. VPN gives you access to library databases, shared drives and systems that are only available on campus.</div>
- </div>
- <div class="accordion-item" role="listitem">
- <button class="accordion-btn" aria-expanded="false">The Wi-Fi keeps dropping in my lecture room. What should I do?<span class="accordion-icon" aria-hidden="true">+</span></button>
- <div class="accordion-body">First, try forgetting the eduroam network and reconnecting. If the problem persists in a specific room, please report it to the <a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener" style="color:var(--green);">ServiceDesk</a> with the room number and time of the issue so IT can investigate the access point. Temporary issues can also be caused by high density of devices — try moving to a different area.</div>
- </div>
- </div>
- </div>
-
- <!-- Software -->
- <div class="faq-section">
- <h3>Software & Apps</h3>
- <div class="accordion" role="list">
- <div class="accordion-item" role="listitem">
- <button class="accordion-btn" aria-expanded="false">What free software am I entitled to as a Computing student?<span class="accordion-icon" aria-hidden="true">+</span></button>
- <div class="accordion-body">Computing students have access to: <strong>Microsoft 365</strong> (Word, Excel, PowerPoint, Teams, OneDrive), <strong>GitHub Copilot</strong>, <strong>JetBrains IDEs</strong> (IntelliJ, PyCharm, WebStorm, etc.), <strong>MATLAB</strong>, <strong>Adobe Creative Cloud</strong> (selected apps), <strong>Cisco Packet Tracer</strong>, and more. Log in to NEST <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Software & Apps to see the full catalogue.</div>
- </div>
- <div class="accordion-item" role="listitem">
- <button class="accordion-btn" aria-expanded="false">How do I activate my GitHub Copilot licence?<span class="accordion-icon" aria-hidden="true">+</span></button>
- <div class="accordion-body">Go to <a href="https://education.github.com" target="_blank" rel="noopener" style="color:var(--green);">education.github.com</a> and sign in with your GitHub account. Click "Get student benefits" and verify your enrolment using your @roehampton.ac.uk email. Approval typically takes 1–3 days. Once approved, GitHub Copilot will be free in VS Code, JetBrains, and the GitHub web editor.</div>
- </div>
- <div class="accordion-item" role="listitem">
- <button class="accordion-btn" aria-expanded="false">Can I install university software on my personal laptop?<span class="accordion-icon" aria-hidden="true">+</span></button>
- <div class="accordion-body">Yes — most licences in the Software Catalogue allow installation on personal devices. Microsoft 365 can be installed on up to 5 devices. JetBrains IDEs can be installed on any personal machine using your student licence. Some software (e.g., MATLAB campus licence) is limited to university-managed devices — the catalogue clearly indicates device restrictions for each title.</div>
- </div>
- </div>
- </div>
-
- <!-- Moodle -->
- <div class="faq-section">
- <h3>Moodle & Learning</h3>
- <div class="accordion" role="list">
- <div class="accordion-item" role="listitem">
- <button class="accordion-btn" aria-expanded="false">I can't see my modules on Moodle. What should I do?<span class="accordion-icon" aria-expanded="false">+</span></button>
- <div class="accordion-body">Modules are typically added to Moodle within 48 hours of the start of term. If a module is still missing after the first week of teaching, first check that you are correctly enrolled on the module via NEST. If enrolment is confirmed but the module is still absent, contact the <a href="mailto:computing@roehampton.ac.uk" style="color:var(--green);">Computing Department</a> — it may need to be manually added.</div>
- </div>
- <div class="accordion-item" role="listitem">
- <button class="accordion-btn" aria-expanded="false">How do I submit an assignment on Moodle?<span class="accordion-icon" aria-hidden="true">+</span></button>
- <div class="accordion-body">Go to your module on Moodle and find the assignment submission link. Click it, then upload your file(s) and click <strong>Save changes</strong>. You'll receive a confirmation email to your Roehampton address. Always submit before the deadline shown — late submissions may be penalised per the university's late submission policy.</div>
- </div>
- </div>
- </div>
-
- </div>
-
- <!-- Sidebar -->
- <aside aria-label="Support sidebar">
 
  <!-- System status -->
- <div class="status-panel" style="margin-bottom:24px;" aria-labelledby="status-heading">
+ <div class="status-panel" aria-labelledby="status-heading">
  <h3 id="status-heading">System status</h3>
  <div class="status-row"><span>NEST (Student Portal)</span><span class="status-ok">Operational</span></div>
  <div class="status-row"><span>Moodle VLE</span><span class="status-ok">Operational</span></div>
@@ -381,7 +309,7 @@
  </div>
 
  <!-- Opening hours -->
- <div class="status-panel" style="margin-bottom:24px;" aria-labelledby="hours-heading">
+ <div class="status-panel" aria-labelledby="hours-heading">
  <h3 id="hours-heading">Opening hours</h3>
  <div class="status-row"><span>IT Help Desk</span><span style="font-size:.82rem;">Mon–Fri, 9–5</span></div>
  <div class="status-row"><span>Computing Labs</span><span style="font-size:.82rem;">Mon–Fri, 8–9pm</span></div>
@@ -401,8 +329,7 @@
  </div>
  </div>
 
- </aside>
- </div>
+  </div>
  </div>
  </section>
 
@@ -425,70 +352,20 @@
  </div>
  </section>
 
- <!-- Contact form -->
- <section class="section section-alt" id="contact-form" aria-labelledby="form-heading">
- <div class="wrap" style="max-width:680px;">
- <div class="section-head">
+ <!-- Contact CTA -->
+ <section class="section-sm section-alt" aria-label="Contact us">
+ <div class="wrap" style="text-align:center;">
  <span class="eyebrow">Get in touch</span>
- <h2 id="form-heading">Send us a message</h2>
- <p>Fill in the form and a member of the Computing IT team will get back to you within one working day.</p>
+ <h2 style="margin:12px 0 8px;">Prefer to send us a message?</h2>
+ <p style="max-width:56ch;margin:0 auto 20px;">Use our contact form and a member of the Computing IT team will get back to you within one working day &#8212; or browse our FAQs for an instant answer.</p>
+ <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+ <a class="btn btn-green" href="contact.html">Go to Contact Us <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ <a class="btn btn-ghost-green" href="services.html#faq">Browse FAQs</a>
  </div>
- <form action="#" method="post" aria-label="Contact form" novalidate>
- <div class="grid-2">
- <div class="form-group">
- <label class="form-label" for="fname">First name <span aria-hidden="true">*</span></label>
- <input class="form-control" type="text" id="fname" name="fname" autocomplete="given-name" required placeholder="Your first name">
- </div>
- <div class="form-group">
- <label class="form-label" for="lname">Last name <span aria-hidden="true">*</span></label>
- <input class="form-control" type="text" id="lname" name="lname" autocomplete="family-name" required placeholder="Your last name">
- </div>
- </div>
- <div class="form-group">
- <label class="form-label" for="email">Roehampton email <span aria-hidden="true">*</span></label>
- <input class="form-control" type="email" id="email" name="email" autocomplete="email" required placeholder="yourname@roehampton.ac.uk">
- </div>
- <div class="form-group">
- <label class="form-label" for="role">I am a…</label>
- <select class="form-control" id="role" name="role">
- <option value="">Select your role</option>
- <option value="student">Student</option>
- <option value="staff">Academic staff</option>
- <option value="admin">Administrative staff</option>
- <option value="researcher">Researcher / PG student</option>
- </select>
- </div>
- <div class="form-group">
- <label class="form-label" for="category">Category</label>
- <select class="form-control" id="category" name="category">
- <option value="">Select a category</option>
- <option value="account">Account & password</option>
- <option value="wifi">Wi-Fi & network</option>
- <option value="software">Software & apps</option>
- <option value="moodle">Moodle & learning tech</option>
- <option value="hardware">Hardware & printing</option>
- <option value="other">Other</option>
- </select>
- </div>
- <div class="form-group">
- <label class="form-label" for="message">Message <span aria-hidden="true">*</span></label>
- <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Describe your issue or question in as much detail as possible…"></textarea>
- </div>
- <button type="submit" class="btn btn-green" style="width:100%;justify-content:center;">Send message <svg class="ic-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
- <p style="font-size:.82rem;text-align:center;margin-top:12px;">For urgent issues, please call <a href="tel:+442083923000" style="color:var(--green);font-weight:600;">+44 (0)20 8392 3000</a> or raise a <a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">ServiceDesk ticket</a>.</p>
- </form>
  </div>
  </section>
 
- <!-- Accessibility statement -->
- <section class="section-sm section-alt" aria-labelledby="a11y-link-heading">
- <div class="wrap" style="text-align:center;">
- <span class="eyebrow">Accessibility</span>
- <h2 id="a11y-link-heading" style="margin:12px 0 8px;">This site is built for everyone</h2>
- <p style="max-width:56ch;margin:0 auto 20px;">The Computing Hub conforms to WCAG 2.1 Level AA. Read our full statement, what we provide and how to report an issue.</p>
- <a class="btn btn-ghost-green btn-sm" href="accessibility.html">Read the accessibility statement</a>
- </div>
- </section>
+
 
  </main>
 
@@ -498,7 +375,7 @@
  <!-- Academic area band -->
  <div class="footer-cebe">
  <div>
- <span class="cebe-kicker">Our academic area</span>
+ <span class="cebe-kicker">The Computing Department is part of</span>
  <h3>School of Computing, Engineering and the Built Environment (CEBE)</h3>
  <p>A connected, inclusive community where innovation meets opportunity — professionally focused education designed with industry, in purpose-built spaces like the Sir David Bell Building.</p>
  </div>
@@ -548,6 +425,7 @@
  <div>
  <h4>Contact Us</h4>
  <ul>
+ <li><a href="services.html#faq">FAQs</a></li>
  <li><a href="support.html#enquiries">By enquiry type</a></li>
  <li><a href="programmes.html#admissions">Admissions</a></li>
  <li><a href="https://servicedesk.roehampton.ac.uk" target="_blank" rel="noopener">ServiceDesk</a></li>
@@ -589,5 +467,11 @@
  </footer>
 
  <script src="assets/js/main.js"></script>
+ <!-- Accessibility banner (dismissible) -->
+ <div class="a11y-banner" id="a11yBanner" role="region" aria-label="Accessibility statement" hidden>
+ <p><strong>This site is built for everyone.</strong> The Computing Hub conforms to WCAG 2.1 Level AA. <a href="accessibility.html">Read the accessibility statement</a></p>
+ <button class="a11y-banner-close" id="a11yBannerClose" aria-label="Dismiss accessibility notice">&#215;</button>
+ </div>
+
 </body>
 </html>
