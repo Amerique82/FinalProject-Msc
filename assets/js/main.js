@@ -58,11 +58,25 @@ document.addEventListener('DOMContentLoaded', function () {
   if (searchBtn && searchBar) {
     searchBtn.addEventListener('click', function () {
       const open = searchBar.classList.toggle('open');
+      searchBtn.setAttribute('aria-expanded', open);
       if (open && searchInput) searchInput.focus();
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') searchBar.classList.remove('open');
     });
+
+    /* Submit: magnifier button or Enter → results page */
+    function submitSearch() {
+      const q = searchInput ? searchInput.value.trim() : '';
+      if (q) window.location.href = 'search.html?q=' + encodeURIComponent(q);
+    }
+    const searchSubmit = searchBar.querySelector('.search-submit');
+    if (searchSubmit) searchSubmit.addEventListener('click', submitSearch);
+    if (searchInput) {
+      searchInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); submitSearch(); }
+      });
+    }
   }
 
   /* ── Tab switching ───────────────────────────────────── */
