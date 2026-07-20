@@ -22,7 +22,7 @@ MVP.
 - Prototyped in Figma
 
 ## Live demo
-👉 https://amerique82.github.io/Final-Project/
+👉 https://amerique82.github.io/FinalProject-Msc/
 
 ## Note
 This is a research prototype, not an official University of Roehampton
